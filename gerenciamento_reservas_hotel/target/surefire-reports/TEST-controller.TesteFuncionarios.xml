@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="controller.TesteFuncionarios" time="3.884" tests="29" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\test-classes;C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\classes;C:\Users\pedro\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\pedro\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\pedro\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\pedro\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\pedro\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\pedro\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin"/>
+    <property name="sun.java.command" value="C:\Users\pedro\AppData\Local\Temp\surefire1327337680004930209\surefirebooter7857134926480462143.jar C:\Users\pedro\AppData\Local\Temp\surefire1327337680004930209 2022-03-16T21-29-50_430-jvmRun1 surefire12646397261308883194tmp surefire_08422457959930607582tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="controller.TesteFuncionarios"/>
+    <property name="surefire.test.class.path" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\test-classes;C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\classes;C:\Users\pedro\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\pedro\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\pedro\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\pedro\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\pedro\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\pedro\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\pedro"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.13"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\pedro\AppData\Local\Temp\surefire1327337680004930209\surefirebooter7857134926480462143.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.13+10-LTS-370"/>
+    <property name="user.name" value="pedro"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\pedro\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\pedro\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.13"/>
+    <property name="user.dir" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;c:\opt\apache-maven-3.8.4\bin;C:\Program Files\Java\jdk-11.0.13\bin;C:\Users\pedro\AppData\Local\Microsoft\WindowsApps;;C:\Users\pedro\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.13+10-LTS-370"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testBuscarAndarMock" classname="controller.TesteFuncionarios" time="0.351"/>
+  <testcase name="testThrowExceptionExcluir" classname="controller.TesteFuncionarios" time="0.101"/>
+  <testcase name="testThrowExceptionCadastro" classname="controller.TesteFuncionarios" time="0.089"/>
+  <testcase name="testCadastroFuncionariosValidos" classname="controller.TesteFuncionarios" time="0.132"/>
+  <testcase name="testThrowExceptiosGetFuncionarios" classname="controller.TesteFuncionarios" time="0.13"/>
+  <testcase name="testPesquisarFuncionariosInvalida" classname="controller.TesteFuncionarios" time="0.109"/>
+  <testcase name="testEditarFuncionariosValidos" classname="controller.TesteFuncionarios" time="0.099"/>
+  <testcase name="testPesquisarFuncionariosVazio" classname="controller.TesteFuncionarios" time="0.101"/>
+  <testcase name="testEditarAndarMock" classname="controller.TesteFuncionarios" time="0.099"/>
+  <testcase name="testThrowExceptionEditar" classname="controller.TesteFuncionarios" time="0.112"/>
+  <testcase name="testExcluirAndarMock" classname="controller.TesteFuncionarios" time="0.087"/>
+  <testcase name="testPesquisarFuncionariosValida" classname="controller.TesteFuncionarios" time="0.081"/>
+  <testcase name="testExcluirFuncionariosValido" classname="controller.TesteFuncionarios" time="0.079"/>
+  <testcase name="testThrowExceptiosValidaLogin" classname="controller.TesteFuncionarios" time="0.098"/>
+  <testcase name="testNenhumFuncionariosSelecionadoParaEditar" classname="controller.TesteFuncionarios" time="0.086"/>
+  <testcase name="testThrowExceptionPesquisaFuncionarios" classname="controller.TesteFuncionarios" time="0.082"/>
+  <testcase name="testThrowExceptiosLoginInvalido" classname="controller.TesteFuncionarios" time="0.083"/>
+  <testcase name="testThrowExceptiosListaFuncionarios" classname="controller.TesteFuncionarios" time="0.082"/>
+  <testcase name="testThrowExceptiosListaLoginsInvalidos" classname="controller.TesteFuncionarios" time="0.076"/>
+  <testcase name="testCadastrarAndarMock" classname="controller.TesteFuncionarios" time="0.076"/>
+  <testcase name="testThrowExceptiosListaFuncionariosInvalidos" classname="controller.TesteFuncionarios" time="0.085"/>
+  <testcase name="testThrowExceptiosGetFuncionariosInvalidos" classname="controller.TesteFuncionarios" time="0.083"/>
+  <testcase name="testCadastroFuncionariosCamposVazios" classname="controller.TesteFuncionarios" time="0.094"/>
+  <testcase name="testFuncionarioNaoExisteParaExcluir" classname="controller.TesteFuncionarios" time="0.118"/>
+  <testcase name="testThrowExceptiosListarFuncionarios" classname="controller.TesteFuncionarios" time="0.183"/>
+  <testcase name="testNenhumFuncionarioSelecionadoParaExcluir" classname="controller.TesteFuncionarios" time="0.088"/>
+  <testcase name="testEditarFuncionariosCamposVazios" classname="controller.TesteFuncionarios" time="0.093"/>
+  <testcase name="testThrowExceptiosListaNomesInvalidos" classname="controller.TesteFuncionarios" time="0.078"/>
+  <testcase name="testThrowExceptiosNomesFuncionarios" classname="controller.TesteFuncionarios" time="0.077"/>
+</testsuite>
