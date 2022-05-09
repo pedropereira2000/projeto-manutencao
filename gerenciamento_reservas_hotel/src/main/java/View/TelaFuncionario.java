@@ -133,7 +133,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
         text_email = new javax.swing.JTextField();
         text_login = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        text_senha = new javax.swing.JTextField();
         jLabel_Nome = new javax.swing.JLabel();
         jLabel_email = new javax.swing.JLabel();
         jLabel_Login = new javax.swing.JLabel();
@@ -148,6 +147,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jLabel_pesNome = new javax.swing.JLabel();
         jLabel_pesLogin = new javax.swing.JLabel();
         Txt_loginEditar = new javax.swing.JTextField();
+        text_senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -264,11 +264,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel_Login)
                             .addComponent(text_login))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(text_email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                             .addComponent(jLabel_email)
                             .addComponent(jLabel_Senha)
-                            .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(text_senha, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(65, 65, 65))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -301,9 +301,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
                     .addComponent(jLabel_Login)
                     .addComponent(jLabel_Senha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(text_senha)
+                    .addComponent(text_login, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -457,6 +457,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField text_email;
     private javax.swing.JTextField text_login;
     private javax.swing.JTextField text_nome;
-    private javax.swing.JTextField text_senha;
+    private javax.swing.JPasswordField text_senha;
     // End of variables declaration//GEN-END:variables
 }
