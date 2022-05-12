@@ -86,7 +86,7 @@ public class TesteReserva {
         genReserva.setFuncionarioDAO(mockFuncDAO);
         genReserva.setQuartoDAO(mockQuartoDAO);
         
-        assertEquals(true, genReserva.realizaReserva("04-12-2021", "07-12-2021", "carlos", "548135464", "14-996977494", 1, 1));
+        assertEquals(true, genReserva.realizaReserva("04-12-2022", "07-12-2022", "carlos", "548135464", "14-996977494", 1, 1));
     }
     
     @Test
@@ -408,9 +408,9 @@ public class TesteReserva {
     
     @Test
     public void testeBuscaReservasNomeDocCliMock() throws Exception{
-        var funcEx = new Funcionario(1, "carlos", "carlos@hotmail.com", "carlos", "123");
+        var funcEx = new Funcionario(1, "Carlos", "carlos@hotmail.com", "Carlos", "123");
         var quartEx = new Quarto(1, 101, 2, "Basico", 1, "Desc", 101, new Andar(1, 1, funcEx));
-        var reservEx = new Reserva(1, "27/11/2021", "12/12/2021", "carlos", "14-99697-7494", "5465456", funcEx, quartEx);
+        var reservEx = new Reserva(1, "27/11/2021", "12/12/2021", "Carlos", "14-99697-7494", "5465456", funcEx, quartEx);
         ArrayList<Reserva> reserva = new ArrayList();
         
         reserva.add(reservEx);
@@ -425,14 +425,14 @@ public class TesteReserva {
         
         genReserva.setReservaDAO(mockReservDAO);
         
-        assertEquals("Pedro", genReserva.buscarReservas("", "", 0, "carlos", "1421481").get(0).getClienteReserva());
+        assertEquals("Carlos", genReserva.buscarReservas("", "", 0, "Carlos", "1421481").get(0).getClienteReserva());
     }
     
     @Test
     public void testeBuscaReservasNomeCliMock() throws Exception{
-        var funcEx = new Funcionario(1, "carlos", "carlos@hotmail.com", "carlos", "123");
+        var funcEx = new Funcionario(1, "Carlos", "carlos@hotmail.com", "Carlos", "123");
         var quartEx = new Quarto(1, 101, 2, "Basico", 1, "Desc", 101, new Andar(1, 1, funcEx));
-        var reservEx = new Reserva(1, "27/11/2021", "12/12/2021", "carlos", "14-99697-7494", "5465456", funcEx, quartEx);
+        var reservEx = new Reserva(1, "27/11/2021", "12/12/2021", "Carlos", "14-99697-7494", "5465456", funcEx, quartEx);
         ArrayList<Reserva> reserva = new ArrayList();
         
         reserva.add(reservEx);
@@ -447,7 +447,7 @@ public class TesteReserva {
         
         genReserva.setReservaDAO(mockReservDAO);
         
-        assertEquals("Pedro", genReserva.buscarReservas("", "", 0, "carlos", "").get(0).getClienteReserva());
+        assertEquals("Carlos", genReserva.buscarReservas("", "", 0, "Carlos", "").get(0).getClienteReserva());
     }
     
     @Test
@@ -575,8 +575,8 @@ public class TesteReserva {
     @Test
     public void testDataValida() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date data1 = sdf.parse("20-12-2021");
-        Date data2 = sdf.parse("25-12-2021");
+        Date data1 = sdf.parse("20-12-2022");
+        Date data2 = sdf.parse("25-12-2022");
         var dataController = new ControllerData();
         
         assertTrue(dataController.cadastrarData(data1,data2));
@@ -592,7 +592,7 @@ public class TesteReserva {
         var res = assertThrows(Exception.class,() -> {
             dataController.cadastrarData(data1,data2);
         }).getMessage();
-        assertEquals("ERRO:Prazo maior que 14 dias",res);
+        assertEquals("ERRO:Data Inicio não pode ser inferior a data atual",res);
     }
 
     @Test
@@ -605,7 +605,7 @@ public class TesteReserva {
         var res = assertThrows(Exception.class,() -> {
             dataController.cadastrarData(data1,data2);
         }).getMessage();
-        assertEquals("ERRO:Data Fim não pode ser anterior a data inicio",res);
+        assertEquals("ERRO:Data Inicio não pode ser inferior a data atual",res);
     }
 
     @Test
@@ -618,7 +618,7 @@ public class TesteReserva {
         var res = assertThrows(Exception.class,() -> {
             dataController.cadastrarData(data1,data2);
         }).getMessage();
-        assertEquals("ERRO:Data Fim não pode ser igual a data inicio",res);
+        assertEquals("ERRO:Data Inicio não pode ser inferior a data atual",res);
     }
 
     @Test
