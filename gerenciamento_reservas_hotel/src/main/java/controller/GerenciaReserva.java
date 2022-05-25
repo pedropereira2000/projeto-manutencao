@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Quarto;
 import model.Reserva;
 
@@ -41,6 +42,17 @@ public class GerenciaReserva {
         this.reservaDAO = reservaDAO;
     }
     
+    public boolean validaContatoCliente(String contato) throws RuntimeException{
+        boolean var = false;
+        String[] dig = contato.split("-");
+        if(dig[0].indexOf(' ') > 0||dig[1].indexOf(' ') > 0||dig[2].indexOf(' ') > 0){
+            throw new RuntimeException("ERRO: Verifique o campo de contado, pode estar faltando algum caractere");
+        }else{
+            var = true;
+        }
+        return var;
+    }
+    
     public Date convertStringDate(String date) throws ParseException{
         try {
             SimpleDateFormat sddia = new SimpleDateFormat("dd-MM-yyyy");//cria um obj de formatação de data
@@ -62,7 +74,7 @@ public class GerenciaReserva {
                     if(controllDt.cadastrarData(convertStringDate(entrada), convertStringDate(saida))){
                         if(!cliNome.equals("")&&cliNome!=null){
                             if(!docCli.equals("")&&docCli!=null){
-                                if(!telContato.equals("")&&!telContato.equals("  -     -    ")&&telContato!=null){
+                                if(!telContato.equals("")&&!telContato.equals("  -     -    ")&&telContato!=null&&validaContatoCliente(telContato)==true){
                                     if(funcId>=1){
                                         if(quartoId>=1){
                                             //Preciso calcular a saida do quarto, a partir da entrada
@@ -71,12 +83,16 @@ public class GerenciaReserva {
                                             return true;
                                         }
                                     }
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "ERRO:Verifique o campo de contato");
                                 }
                             }
                         }
                     }
                 }
             }
+        }catch (RuntimeException e) {
+            return false;
         } catch (Exception e) {
             return false;
         }
@@ -88,7 +104,7 @@ public class GerenciaReserva {
             if(!entrada.equals("")&&entrada!=null&&!entrada.equals("    -  -  ")){
                 if(!nomeAlt.equals("")&&nomeAlt!=null){
                     if(!docAlt.equals("")&&docAlt!=null){
-                        if(!contatoAlt.equals("")&&!contatoAlt.equals("  -     -    ")&&contatoAlt!=null){
+                        if(!contatoAlt.equals("")&&!contatoAlt.equals("  -     -    ")&&contatoAlt!=null&&validaContatoCliente(contatoAlt)==true){
                             if(numQuarto>=1){
                                 Reserva reserv = reservaDAO.buscaReserva(entrada, numQuarto);
                                 reserv.setClienteReserva(nomeAlt);
@@ -101,6 +117,8 @@ public class GerenciaReserva {
                     }
                 }
             }
+        }catch (RuntimeException e) {
+            return false;
         } catch (Exception e) {
             return false;
         }

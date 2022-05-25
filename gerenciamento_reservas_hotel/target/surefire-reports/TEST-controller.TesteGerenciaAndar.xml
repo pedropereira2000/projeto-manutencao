@@ -1,83 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="controller.TesteGerenciaAndar" time="6.76" tests="18" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="controller.TesteGerenciaAndar" time="2.213" tests="18" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="sun.desktop" value="windows"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
-    <property name="sun.cpu.isalist" value="amd64"/>
-    <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\test-classes;C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\classes;C:\Users\pedro\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\pedro\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\pedro\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\pedro\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\pedro\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\pedro\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
-    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/test-classes:/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/classes:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports/6.19.1/jasperreports-6.19.1.jar:/home/pedropereira/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/pedropereira/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/pedropereira/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/home/pedropereira/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/home/pedropereira/.m2/repository/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar:/home/pedropereira/.m2/repository/com/lowagie/itext/2.1.7.js9/itext-2.1.7.js9.jar:/home/pedropereira/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.68/bcprov-jdk15on-1.68.jar:/home/pedropereira/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar:/home/pedropereira/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar:/home/pedropereira/.m2/repository/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.1/jackson-core-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.1/jackson-databind-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.1/jackson-annotations-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.1/jackson-dataformat-xml-2.13.1.jar:/home/pedropereira/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports-fonts/6.19.1/jasperreports-fonts-6.19.1.jar:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports-functions/6.19.1/jasperreports-functions-6.19.1.jar:/home/pedropereira/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/pedropereira/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/pedropereira/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/pedropereira/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/pedropereira/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:/home/pedropereira/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/home/pedropereira/.m2/repository/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar:/home/pedropereira/.m2/repository/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar:"/>
+    <property name="java.vm.vendor" value="Flathub"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
-    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="java.vendor.url" value="https://flathub.org"/>
+    <property name="user.timezone" value=""/>
     <property name="java.vm.specification.version" value="11"/>
-    <property name="os.name" value="Windows 10"/>
+    <property name="os.name" value="Linux"/>
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin"/>
-    <property name="sun.java.command" value="C:\Users\pedro\AppData\Local\Temp\surefire10875582471578489680\surefirebooter5736298873459252124.jar C:\Users\pedro\AppData\Local\Temp\surefire10875582471578489680 2022-03-16T21-30-05_193-jvmRun1 surefire2852561109468588967tmp surefire_0909462532881441311tmp"/>
+    <property name="sun.boot.library.path" value="/app/jdk/lib"/>
+    <property name="sun.java.command" value="/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/surefire/surefirebooter11216270273175666376.jar /home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/surefire 2022-05-25T15-40-16_761-jvmRun1 surefire10256407564174891728tmp surefire_0569129795472488640tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="controller.TesteGerenciaAndar"/>
-    <property name="surefire.test.class.path" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\test-classes;C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel\target\classes;C:\Users\pedro\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\pedro\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\pedro\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\pedro\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\pedro\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\pedro\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\pedro\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
+    <property name="surefire.test.class.path" value="/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/test-classes:/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/classes:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports/6.19.1/jasperreports-6.19.1.jar:/home/pedropereira/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/pedropereira/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/pedropereira/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/home/pedropereira/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/home/pedropereira/.m2/repository/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar:/home/pedropereira/.m2/repository/com/lowagie/itext/2.1.7.js9/itext-2.1.7.js9.jar:/home/pedropereira/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.68/bcprov-jdk15on-1.68.jar:/home/pedropereira/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar:/home/pedropereira/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar:/home/pedropereira/.m2/repository/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.1/jackson-core-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.1/jackson-databind-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.1/jackson-annotations-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.1/jackson-dataformat-xml-2.13.1.jar:/home/pedropereira/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports-fonts/6.19.1/jasperreports-fonts-6.19.1.jar:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports-functions/6.19.1/jasperreports-functions-6.19.1.jar:/home/pedropereira/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/pedropereira/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/pedropereira/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/pedropereira/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/pedropereira/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:/home/pedropereira/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/home/pedropereira/.m2/repository/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar:/home/pedropereira/.m2/repository/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\pedro"/>
+    <property name="user.home" value="/home/pedropereira"/>
     <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2021-10-19"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.13"/>
-    <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel"/>
+    <property name="java.version.date" value="2022-01-18"/>
+    <property name="java.home" value="/app/jdk"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\pedro\AppData\Local\Temp\surefire10875582471578489680\surefirebooter5736298873459252124.jar"/>
-    <property name="user.script" value=""/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel/target/surefire/surefirebooter11216270273175666376.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="11.0.13+10-LTS-370"/>
-    <property name="user.name" value="pedro"/>
-    <property name="path.separator" value=";"/>
-    <property name="os.version" value="10.0"/>
-    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.runtime.version" value="11.0.14+8"/>
+    <property name="user.name" value="pedropereira"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.15.0-33-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="java.vendor.version" value="18.9"/>
-    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
-    <property name="localRepository" value="C:\Users\pedro\.m2\repository"/>
+    <property name="maven.ext.class.path" value="/app/netbeans/java/maven-nblib/netbeans-eventspy.jar"/>
+    <property name="localRepository" value="/home/pedropereira/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="C:\Users\pedro\AppData\Local\Temp\"/>
-    <property name="java.version" value="11.0.13"/>
-    <property name="user.dir" value="C:\Users\pedro\Documents\oficina_2\gerenciamento_reservas_hotel"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.14"/>
+    <property name="user.dir" value="/home/pedropereira/Área de Trabalho/UTFPR/projeto-manutencao/gerenciamento_reservas_hotel"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;c:\opt\apache-maven-3.8.4\bin;C:\Program Files\Java\jdk-11.0.13\bin;C:\Users\pedro\AppData\Local\Microsoft\WindowsApps;;C:\Users\pedro\AppData\Local\Programs\Microsoft VS Code\bin;."/>
-    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value=":/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.vm.version" value="11.0.13+10-LTS-370"/>
+    <property name="java.vendor" value="Flathub"/>
+    <property name="java.vm.version" value="11.0.14+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testBuscarAndarMock" classname="controller.TesteGerenciaAndar" time="0.617"/>
-  <testcase name="testThrowsExceptionExclusao" classname="controller.TesteGerenciaAndar" time="0.13"/>
-  <testcase name="testCadastraQtdQuartoInvalido" classname="controller.TesteGerenciaAndar" time="0.379"/>
-  <testcase name="testCadastraExistenteAndarQuartoValido" classname="controller.TesteGerenciaAndar" time="0.374"/>
-  <testcase name="testExcluirAndarMock" classname="controller.TesteGerenciaAndar" time="0.368"/>
-  <testcase name="testBuscaTodosAndar" classname="controller.TesteGerenciaAndar" time="0.348"/>
-  <testcase name="testBuscaAndarNumInvalido" classname="controller.TesteGerenciaAndar" time="0.368"/>
-  <testcase name="testBuscaAndarValido" classname="controller.TesteGerenciaAndar" time="0.386"/>
-  <testcase name="testCadastrarAndarMock" classname="controller.TesteGerenciaAndar" time="0.316"/>
-  <testcase name="testBuscaAndarInvalido" classname="controller.TesteGerenciaAndar" time="0.377"/>
-  <testcase name="testExcluiAndar" classname="controller.TesteGerenciaAndar" time="0.403"/>
-  <testcase name="testExcluiAndarInexistente" classname="controller.TesteGerenciaAndar" time="0.34"/>
-  <testcase name="testThrowsExceptionCadastrar" classname="controller.TesteGerenciaAndar" time="0.103"/>
-  <testcase name="testCadastraQtdAndarInvalido" classname="controller.TesteGerenciaAndar" time="0.362"/>
-  <testcase name="testThrowsExceptionBuscarIdAndarInvalido" classname="controller.TesteGerenciaAndar" time="0.082"/>
-  <testcase name="testCadastraAndarQuartoInvalido" classname="controller.TesteGerenciaAndar" time="0.314"/>
-  <testcase name="testThrowsExceptionBuscarIdAndar" classname="controller.TesteGerenciaAndar" time="0.11"/>
-  <testcase name="testCadastraNovoAndarQuartoValido" classname="controller.TesteGerenciaAndar" time="0.332"/>
+  <testcase name="testBuscarAndarMock" classname="controller.TesteGerenciaAndar" time="0.157"/>
+  <testcase name="testThrowsExceptionExclusao" classname="controller.TesteGerenciaAndar" time="0.062"/>
+  <testcase name="testCadastraQtdQuartoInvalido" classname="controller.TesteGerenciaAndar" time="0.111"/>
+  <testcase name="testCadastraExistenteAndarQuartoValido" classname="controller.TesteGerenciaAndar" time="0.14"/>
+  <testcase name="testExcluirAndarMock" classname="controller.TesteGerenciaAndar" time="0.105"/>
+  <testcase name="testBuscaTodosAndar" classname="controller.TesteGerenciaAndar" time="0.145"/>
+  <testcase name="testBuscaAndarNumInvalido" classname="controller.TesteGerenciaAndar" time="0.151"/>
+  <testcase name="testBuscaAndarValido" classname="controller.TesteGerenciaAndar" time="0.141"/>
+  <testcase name="testCadastrarAndarMock" classname="controller.TesteGerenciaAndar" time="0.116"/>
+  <testcase name="testBuscaAndarInvalido" classname="controller.TesteGerenciaAndar" time="0.138"/>
+  <testcase name="testExcluiAndar" classname="controller.TesteGerenciaAndar" time="0.131"/>
+  <testcase name="testExcluiAndarInexistente" classname="controller.TesteGerenciaAndar" time="0.135"/>
+  <testcase name="testThrowsExceptionCadastrar" classname="controller.TesteGerenciaAndar" time="0.061"/>
+  <testcase name="testCadastraQtdAndarInvalido" classname="controller.TesteGerenciaAndar" time="0.114"/>
+  <testcase name="testThrowsExceptionBuscarIdAndarInvalido" classname="controller.TesteGerenciaAndar" time="0.059"/>
+  <testcase name="testCadastraAndarQuartoInvalido" classname="controller.TesteGerenciaAndar" time="0.136"/>
+  <testcase name="testThrowsExceptionBuscarIdAndar" classname="controller.TesteGerenciaAndar" time="0.057"/>
+  <testcase name="testCadastraNovoAndarQuartoValido" classname="controller.TesteGerenciaAndar" time="0.144"/>
 </testsuite>

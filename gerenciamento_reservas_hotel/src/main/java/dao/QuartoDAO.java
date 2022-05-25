@@ -30,7 +30,7 @@ public class QuartoDAO {
     }
     
     public void setConnection(){
-        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","Pedro@0704");
+        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","Pedro@07044589");
     }
 
     //Cadastrar Quarto
@@ -38,7 +38,7 @@ public class QuartoDAO {
         PreparedStatement inserir = null;
         try {
             //Preparando Query
-            inserir = conectar.prepareStatement("INSERT INTO QUARTO (numQuarto,numCamasQuarto,tipoQuarto,qtdBanheirosQuarto,descricaoQuarto,contatoQuarto,Andar_idAndar)VALUES(?,?,?,?,?,?,?)");
+            inserir = conectar.prepareStatement("INSERT INTO Quarto (numQuarto,numCamasQuarto,tipoQuarto,qtdBanheirosQuarto,descricaoQuarto,contatoQuarto,Andar_idAndar)VALUES(?,?,?,?,?,?,?)");
             //Passando Parâmetros para cadastro
             
             inserir.setInt(1, quarto.getNumQuarto());
@@ -64,7 +64,7 @@ public class QuartoDAO {
         PreparedStatement editar = null;
         try {
             //Preparando Query para Atualização do Cadastro
-            editar = conectar.prepareStatement("UPDATE QUARTO SET numQuarto = ?, numCamasQuarto = ?, tipoQuarto = ?, qtdBanheirosQuarto = ?, descricaoQuarto = ?, contatoQuarto = ?, Andar_idAndar = ? WHERE idQuarto = ?");
+            editar = conectar.prepareStatement("UPDATE Quarto SET numQuarto = ?, numCamasQuarto = ?, tipoQuarto = ?, qtdBanheirosQuarto = ?, descricaoQuarto = ?, contatoQuarto = ?, Andar_idAndar = ? WHERE idQuarto = ?");
             //Passando Parâmetros para editar cadastro
             editar.setInt(1, quarto.getNumQuarto());
             editar.setInt(2, quarto.getNumCamasQuarto());
@@ -95,7 +95,7 @@ public class QuartoDAO {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
-            excluir = conectar.prepareStatement("DELETE FROM QUARTO WHERE idQuarto = ?");
+            excluir = conectar.prepareStatement("DELETE FROM Quarto WHERE idQuarto = ?");
             //Passando Parâmetros exclusão de cadastro
             excluir.setInt(1, quarto.getIdQuarto());
             //Execução Query
@@ -113,7 +113,7 @@ public class QuartoDAO {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
-            excluir = conectar.prepareStatement("DELETE FROM QUARTO WHERE Andar_idAndar =  ?");
+            excluir = conectar.prepareStatement("DELETE FROM Quarto WHERE Andar_idAndar =  ?");
             //Passando Parâmetros exclusão de cadastro
             excluir.setInt(1, andar.getIdAndar());
             //Execução Query
@@ -131,7 +131,7 @@ public class QuartoDAO {
     public Quarto buscarInformacaoNumeroQuarto(int numQuarto) {
         Quarto cont = new Quarto();
         try {
-        	String countSql = ("SELECT COUNT(*) as total FROM QUARTO WHERE numQuarto = "+numQuarto);
+        	String countSql = ("SELECT COUNT(*) as total FROM Quarto WHERE numQuarto = "+numQuarto);
         	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
@@ -140,7 +140,7 @@ public class QuartoDAO {
             if(rsCount.getInt("total")==0) throw new SQLException();
             else {
 	            //Query para Pesquisa
-	            String selectSql = ("SELECT * FROM QUARTO WHERE numQuarto = " + numQuarto);
+	            String selectSql = ("SELECT * FROM Quarto WHERE numQuarto = " + numQuarto);
 	            PreparedStatement Stmt = conectar.prepareStatement(selectSql);
 	            //Executando Query
 	            ResultSet rs = Stmt.executeQuery();
@@ -192,7 +192,7 @@ public class QuartoDAO {
         ArrayList<Quarto> quarto = new ArrayList();
         try {
             //Query para Pesquisa
-        	String countSql = ("SELECT COUNT(*) as total FROM QUARTO");
+        	String countSql = ("SELECT COUNT(*) as total FROM Quarto");
         	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
@@ -200,7 +200,7 @@ public class QuartoDAO {
         	rsCount.next();
             if(rsCount.getInt("total")==0) throw new SQLException();
             else {
-	            String selectSql = ("SELECT * FROM QUARTO");
+	            String selectSql = ("SELECT * FROM Quarto");
 	            PreparedStatement Stmt = conectar.prepareStatement(selectSql);
 	            //Executando Query
 	            ResultSet rs = Stmt.executeQuery();
@@ -221,18 +221,18 @@ public class QuartoDAO {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
-            excluir = conectar.prepareStatement("DELETE FROM QUARTO");
+            excluir = conectar.prepareStatement("DELETE FROM Quarto");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("DELETE FROM ANDAR");
+            excluir = conectar.prepareStatement("DELETE FROM Andar");
             //Execução Query
             excluir.execute();
             //Encerramento Query
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE ANDAR AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Andar AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE QUARTO AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Quarto AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
             return true;
@@ -282,7 +282,7 @@ public class QuartoDAO {
         try {
             //Query para Pesquisa
             String countSql = ("SELECT count(*) as total from Quarto left outer join Reserva on Quarto.idQuarto = Reserva.Quarto_idQuarto "
-                    + "Where idQuarto not in (select Quarto_idQuarto from reserva ) order by Quarto.idQuarto;");
+                    + "Where idQuarto not in (select Quarto_idQuarto from Reserva ) order by Quarto.idQuarto;");
             PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
@@ -293,7 +293,7 @@ public class QuartoDAO {
             } else {
                 String selectSql = ("SELECT idQuarto, numQuarto, NumCamasQuarto,tipoQuarto,qtdBanheirosQuarto,descricaoQuarto, contatoQuarto,Andar_idAndar " 
                  + "from Quarto left outer join Reserva on Quarto.idQuarto = Reserva.Quarto_idQuarto " 
-                 + "Where idQuarto not in (select Quarto_idQuarto from reserva ) order by Quarto.idQuarto;");
+                 + "Where idQuarto not in (select Quarto_idQuarto from Reserva ) order by Quarto.idQuarto;");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
