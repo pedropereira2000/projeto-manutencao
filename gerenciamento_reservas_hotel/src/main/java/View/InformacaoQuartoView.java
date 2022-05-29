@@ -267,8 +267,8 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonOcupadosActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        TelaReservas tlRes = new TelaReservas();
-        tlRes.setVisible(true);
+        new TelaReservas().show();
+        dispose();
     }//GEN-LAST:event_btnReservarActionPerformed
 
     /**

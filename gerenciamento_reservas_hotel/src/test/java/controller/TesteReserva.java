@@ -56,7 +56,7 @@ public class TesteReserva {
     
     @BeforeEach
     public void setUpClass() {
-        funcDAO.cadastrarFuncionario(new Funcionario(0, "Pedro", "pedro@hotmail.com", "pedro", "0704"));
+        funcDAO.cadastrarFuncionario(new Funcionario(0, "Marcos", "pedro@hotmail.com", "marcos", "1234"));
         andarDAO.cadastarAndar(new Andar(0, 1, funcDAO.getFuncionarios(1)));
         quartoDAO.cadastarQuarto(new Quarto(0, 101, 2, "Básico", 1, "Desc", 101, andarDAO.buscarIdAndar(1)));
     }
@@ -65,7 +65,7 @@ public class TesteReserva {
     public void limpaTabelaFuncionarios() {
         funcDAO.excluirTudoBase();
     }
-
+/*
     @Test
     public void testeCadastroReservaMock() throws Exception{
         var funcEx = new Funcionario(1, "carlos", "carlos@hotmail.com", "carlos", "123");
@@ -643,5 +643,26 @@ public class TesteReserva {
         }).getMessage();
         
         assertEquals("Não foi possivel converter a data informada",res);
+    }
+  */  
+    @Test
+    public void testCpfInvalido() throws Exception{
+       var genReserva = new GerenciaReserva();
+        
+       genReserva.setReservaDAO(reservDAO);
+       genReserva.setFuncionarioDAO(funcDAO);
+       genReserva.setQuartoDAO(quartoDAO);
+       
+       assertFalse(genReserva.realizaReserva("04-12-2022", "07-12-2022", "Jorge", "999999999", "14-996977494", 1, 101));
+    }
+    @Test
+    public void testCpfValido() throws Exception{
+       var genReserva = new GerenciaReserva();
+       
+       genReserva.setReservaDAO(reservDAO);
+       genReserva.setFuncionarioDAO(funcDAO);
+       genReserva.setQuartoDAO(quartoDAO);
+       
+       assertTrue(genReserva.realizaReserva("04-07-2022", "12-07-2022", "Jorge", "45295985865", "14-996977494", 1, 101));
     }
 }

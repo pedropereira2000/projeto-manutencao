@@ -372,8 +372,8 @@ public class TelaAmbientes extends javax.swing.JFrame {
     }//GEN-LAST:event_rbQuartosActionPerformed
 
     private void btnInfosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfosActionPerformed
-        InformacaoQuartoView infoQView = new InformacaoQuartoView();
-        infoQView.setVisible(true);
+        new InformacaoQuartoView().show();
+        dispose();
         
     }//GEN-LAST:event_btnInfosActionPerformed
 

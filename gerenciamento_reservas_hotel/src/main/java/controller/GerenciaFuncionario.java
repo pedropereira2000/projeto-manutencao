@@ -12,6 +12,7 @@ import java.util.List;
 //import javax.swing.table.DefaultTableModel;
 
 import dao.FuncionarioDAO;
+import javax.swing.JOptionPane;
 
 public class GerenciaFuncionario {
     private FuncionarioDAO funcDao = new FuncionarioDAO();
@@ -111,7 +112,7 @@ public class GerenciaFuncionario {
 	                
 	            }
 	        }else{
-	            //JOptionPane.showMessageDialog(null, "Nenhum Funcionario Selecionado Na Tabela");
+	            JOptionPane.showMessageDialog(null, "Nenhum Funcionario Selecionado Na Tabela");
 	            throw new RuntimeException("Nenhum Funcionario Selecionado Na Tabela");
 
 	        }

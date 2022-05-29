@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
     public static Connection conectar(){
        try{
-           return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC","root","Pedro@0704");
+           return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC","root","3621");
        }catch(SQLException e){
            throw new RuntimeException(e);
        }
