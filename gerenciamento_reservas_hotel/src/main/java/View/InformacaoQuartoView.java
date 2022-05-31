@@ -7,6 +7,7 @@ package View;
 
 import controller.GerenciaAndar;
 import controller.GerenciaQuarto;
+import controller.GerenciaReserva;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -21,6 +22,7 @@ import model.Quarto;
 public class InformacaoQuartoView extends javax.swing.JFrame {
 
     private GerenciaQuarto gencQuarto = new GerenciaQuarto();
+    private GerenciaReserva gencReserva = new GerenciaReserva();
 
     /**
      * Creates new form InformacaoQuartoView
@@ -100,7 +102,6 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblQuartoOcupados = new javax.swing.JTable();
         btnReservar = new javax.swing.JButton();
-        txtDoc = new javax.swing.JTextField();
         btnBusca = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -191,7 +192,7 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
             jpQuarto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpQuarto2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -205,6 +206,11 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
 
         btnBusca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnBusca.setText("Buscar por Cliente");
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,17 +226,15 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jRadioButtonOcupados)
-                        .addGap(43, 43, 43)
+                        .addGap(172, 172, 172)
                         .addComponent(btnReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
                         .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioButtonLivres)))
                 .addGap(45, 45, 45))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 397, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(371, 371, 371))
         );
@@ -244,7 +248,6 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
                     .addComponent(jRadioButtonLivres)
                     .addComponent(jRadioButtonOcupados)
                     .addComponent(btnReservar)
-                    .addComponent(txtDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca))
                 .addGap(7, 7, 7)
                 .addComponent(jpQuarto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,6 +272,11 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
         TelaReservas tlRes = new TelaReservas();
         tlRes.setVisible(true);
     }//GEN-LAST:event_btnReservarActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+       BuscaNomeCliente bNC = new BuscaNomeCliente ();
+        bNC.setVisible(true);
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,6 +330,5 @@ public class InformacaoQuartoView extends javax.swing.JFrame {
     private javax.swing.JPanel jpQuarto2;
     private javax.swing.JTable tblQuartoLivres;
     private javax.swing.JTable tblQuartoOcupados;
-    private javax.swing.JTextField txtDoc;
     // End of variables declaration//GEN-END:variables
 }

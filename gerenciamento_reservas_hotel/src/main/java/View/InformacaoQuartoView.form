@@ -39,20 +39,18 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="jRadioButtonOcupados" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                       <Component id="btnReservar" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="btnBusca" min="-2" pref="135" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtDoc" pref="311" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jRadioButtonLivres" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="397" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="371" max="-2" attributes="0"/>
           </Group>
@@ -68,7 +66,6 @@
                   <Component id="jRadioButtonLivres" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jRadioButtonOcupados" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnReservar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBusca" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -178,7 +175,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="294" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="295" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -223,8 +220,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDoc">
-    </Component>
     <Component class="javax.swing.JButton" name="btnBusca">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -232,6 +227,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar por Cliente"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -154,4 +154,10 @@ public class GerenciaReserva {
         ArrayList<Reserva> reservas = reservaDAO.buscTodasReservas();
         return reservas;
     }
+    
+    /*Bucar Clientes Reservados*/
+    public ArrayList<Reserva> buscaReservasNameCli(String nameCli){
+        ArrayList<Reserva> reservas = reservaDAO.buscReservasNameCli(nameCli);
+        return reservas;
+    }
 }
