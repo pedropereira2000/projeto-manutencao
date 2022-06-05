@@ -24,7 +24,7 @@ public class ControllerData {
                     JOptionPane.showMessageDialog(null, "ERRO:Prazo maior que 14 dias");
                     throw new RuntimeException("ERRO:Prazo maior que 14 dias");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Sucesso!!!");
+                    
                     return true;
                 }
             }else if(DataFim.getTime() < DataInicio.getTime()){
