@@ -33,7 +33,6 @@ public class FuncionarioDAO {
 	                //Query para inserção de um novo Funcionario no banco de dados
 	                inserir = conectar.prepareStatement("INSERT INTO FUNCIONARIO (nomeFuncionario,emailFuncionario,loginFuncionario,senhaFuncionario)VALUES(?,?,?,?)");
 	                //Passando id do Funcionario como parâmetro
-	                //inserir.setInt(1, func.getIdFuncionario());
 	                //Passando nome do Funcionario como parâmetro
 	                inserir.setString(1, func.getNomeFuncionario());
 	                //Passando e-mail do Funcionario como parâmetro

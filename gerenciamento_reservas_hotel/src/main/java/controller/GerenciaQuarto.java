@@ -7,9 +7,7 @@ package controller;
 
 import model.Andar;
 import model.Quarto;
-
 import java.util.ArrayList;
-
 import dao.AndarDAO;
 import dao.QuartoDAO;
 

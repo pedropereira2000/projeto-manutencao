@@ -27,17 +27,17 @@ public class TelaFuncionario extends javax.swing.JFrame {
     int id = 0;
     /*FUNÇÃO PARA LIMPAR A TELA*/
     public void limparTela(){
-        text_nome.setText("");
-        text_email.setText("");
-        text_login.setText("");
-        text_senha.setText("");
+        txtName.setText("");
+        txtEmail.setText("");
+        txtLogin.setText("");
+        txtPassword.setText("");
     }
     //FUNÇÃO PARA LISTAR TODOS OS Funcionarios CADASTRADOS NO BANCO DE DADOS 
     public void Listar(){
        try{
             FuncionarioDAO dao = new FuncionarioDAO();
             List<Funcionario> listaFuncionarios = dao.listarFuncionarios();
-            DefaultTableModel model = (DefaultTableModel)tabela_Funcionarios.getModel();
+            DefaultTableModel model = (DefaultTableModel)tabelaFuncionarios.getModel();
             
             model.setNumRows(0);
             
@@ -57,26 +57,26 @@ public class TelaFuncionario extends javax.swing.JFrame {
     }
     /*Função para Listar Todos os login Cadastrados*/
      public void listarLogin(){
-        cb_nome.removeAllItems();
-        cb_nome.addItem("<Selecione o Login>");
-        cb_login.removeAllItems();
-        cb_login.addItem("<Selecione o Nome>");
+        cbName.removeAllItems();
+        cbName.addItem("<Selecione o Login>");
+        cbLogin.removeAllItems();
+        cbLogin.addItem("<Selecione o Nome>");
      
         FuncionarioDAO funcdao = new FuncionarioDAO();
         
         for(Funcionario f: funcdao.listarLogin()){
-            cb_login.addItem(f.getLoginFuncionario());
+            cbLogin.addItem(f.getLoginFuncionario());
         } 
     }
     /*Função para Listar Todos os Nomes Cadastrados*/
     public void listarNomes(String desc){
-        cb_nome.removeAllItems();
-        cb_nome.addItem("<Selecione o Nome>");
+        cbName.removeAllItems();
+        cbName.addItem("<Selecione o Nome>");
         
         FuncionarioDAO funcdao = new FuncionarioDAO();
         
         for(Funcionario f: funcdao.listarNome(desc)){
-            cb_nome.addItem(f.getNomeFuncionario());
+            cbName.addItem(f.getNomeFuncionario());
         } 
     }
    
@@ -84,13 +84,13 @@ public class TelaFuncionario extends javax.swing.JFrame {
     public void pesquisarFuncionario(){
        // Botão Pesquisar
          try{
-            String login = cb_login.getSelectedItem().toString();
-            String nome = cb_nome.getSelectedItem().toString();
+            String login = cbLogin.getSelectedItem().toString();
+            String nome = cbName.getSelectedItem().toString();
             if(login != "<Selecione o Login>" && nome != "<Selecione o Nome>"){
                 System.out.println(""+login);
                 FuncionarioDAO dao = new FuncionarioDAO();
                 List<Funcionario> consultarFuncionarioLogin = dao.pesquisarFuncionario(login,nome);
-                DefaultTableModel model = (DefaultTableModel)tabela_Funcionarios.getModel();
+                DefaultTableModel model = (DefaultTableModel)tabelaFuncionarios.getModel();
                 
                 model.setNumRows(0);
                 
@@ -129,72 +129,81 @@ public class TelaFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        text_nome = new javax.swing.JTextField();
-        text_email = new javax.swing.JTextField();
-        text_login = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        text_senha = new javax.swing.JTextField();
-        jLabel_Nome = new javax.swing.JLabel();
-        jLabel_email = new javax.swing.JLabel();
-        jLabel_Login = new javax.swing.JLabel();
-        jLabel_Senha = new javax.swing.JLabel();
-        jButton_Editar = new javax.swing.JButton();
-        jButton_Excluir = new javax.swing.JButton();
-        jButton_Pesquisar = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtLogin = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        jLabelNome = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
+        jLabelLogin = new javax.swing.JLabel();
+        jLabelSenha = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela_Funcionarios = new javax.swing.JTable();
-        cb_nome = new javax.swing.JComboBox<>();
-        cb_login = new javax.swing.JComboBox<>();
-        jLabel_pesNome = new javax.swing.JLabel();
-        jLabel_pesLogin = new javax.swing.JLabel();
+        tabelaFuncionarios = new javax.swing.JTable();
+        cbName = new javax.swing.JComboBox<>();
+        cbLogin = new javax.swing.JComboBox<>();
+        jLabelPesNome = new javax.swing.JLabel();
+        jLabelPesLogin = new javax.swing.JLabel();
         Txt_loginEditar = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        text_nome.addActionListener(new java.awt.event.ActionListener() {
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_nomeActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
-        jLabel_Nome.setText("Nome");
+        jLabelNome.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabelNome.setText("Nome");
 
-        jLabel_email.setText("E-mail");
+        jLabelEmail.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabelEmail.setText("E-mail");
 
-        jLabel_Login.setText("Login");
+        jLabelLogin.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabelLogin.setText("Login");
 
-        jLabel_Senha.setText("Senha");
+        jLabelSenha.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabelSenha.setText("Senha");
 
-        jButton_Editar.setText("Editar");
-        jButton_Editar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_EditarActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
-        jButton_Excluir.setText("Excluir");
-        jButton_Excluir.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ExcluirActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
 
-        jButton_Pesquisar.setText("Pesquisar");
-        jButton_Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_PesquisarActionPerformed(evt);
+                btnPesquisarActionPerformed(evt);
             }
         });
 
-        tabela_Funcionarios.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -205,41 +214,46 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 "id", "Nome", "E-mail", "Login", "Senha"
             }
         ));
-        tabela_Funcionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabela_FuncionariosMouseClicked(evt);
+                tabelaFuncionariosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabela_Funcionarios);
+        jScrollPane1.setViewportView(tabelaFuncionarios);
 
-        cb_nome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Nome>" }));
-        cb_nome.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Nome>" }));
+        cbName.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cb_nomePopupMenuWillBecomeVisible(evt);
+                cbNamePopupMenuWillBecomeVisible(evt);
             }
         });
 
-        cb_login.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Login>" }));
-        cb_login.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbLogin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Login>" }));
+        cbLogin.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cb_loginPopupMenuWillBecomeVisible(evt);
+                cbLoginPopupMenuWillBecomeVisible(evt);
             }
         });
 
-        jLabel_pesNome.setText("Pesquisar Nome");
+        jLabelPesNome.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabelPesNome.setText("Pesquisar Nome");
 
-        jLabel_pesLogin.setText("Pesquisar Login");
+        jLabelPesLogin.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabelPesLogin.setText("Pesquisar Login");
 
         Txt_loginEditar.setEditable(false);
         Txt_loginEditar.setText("0");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 22)); // NOI18N
+        jLabel1.setText("Funcionário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,127 +264,133 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_login, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_pesLogin))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                            .addComponent(cbLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPesLogin))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_pesNome)
-                            .addComponent(cb_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabelPesNome)
+                            .addComponent(cbName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel_Nome)
-                            .addComponent(text_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                            .addComponent(jLabel_Login)
-                            .addComponent(text_login))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_email)
-                            .addComponent(jLabel_Senha)
-                            .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(65, 65, 65))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButton_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton_Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton_Pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(195, 195, 195))
+                            .addComponent(jLabelNome)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                            .addComponent(jLabelLogin)
+                            .addComponent(txtLogin))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                            .addComponent(jLabelEmail)
+                            .addComponent(jLabelSenha)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(56, 56, 56))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Txt_loginEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(194, 194, 194))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(404, 404, 404)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Txt_loginEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Nome)
-                    .addComponent(jLabel_email))
+                    .addComponent(jLabelNome)
+                    .addComponent(jLabelEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Login)
-                    .addComponent(jLabel_Senha))
+                    .addComponent(jLabelLogin)
+                    .addComponent(jLabelSenha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPassword)
+                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel_pesNome)
+                        .addComponent(jLabelPesNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cb_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel_pesLogin)
+                        .addComponent(jLabelPesLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cb_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
+                        .addComponent(cbLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton_Pesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton_Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcluir))
+                .addGap(23, 23, 23))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(946, 608));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void text_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nomeActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_text_nomeActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void tabela_FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabela_FuncionariosMouseClicked
+    private void tabelaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosMouseClicked
         // TODO add your handling code here:
         // Pegar o login do funcionario
-        text_nome.setText(tabela_Funcionarios.getValueAt(tabela_Funcionarios.getSelectedRow(), 1).toString());
-        text_email.setText(tabela_Funcionarios.getValueAt(tabela_Funcionarios.getSelectedRow(), 2).toString());
-        text_login.setText(tabela_Funcionarios.getValueAt(tabela_Funcionarios.getSelectedRow(), 3).toString());
-        text_senha.setText(tabela_Funcionarios.getValueAt(tabela_Funcionarios.getSelectedRow(), 4).toString());
-        Txt_loginEditar.setText(tabela_Funcionarios.getValueAt(tabela_Funcionarios.getSelectedRow(), 0).toString());
+        txtName.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 1).toString());
+        txtEmail.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 2).toString());
+        txtLogin.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 3).toString());
+        txtPassword.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 4).toString());
+        Txt_loginEditar.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 0).toString());
         id = Integer.parseInt(Txt_loginEditar.getText());
-    }//GEN-LAST:event_tabela_FuncionariosMouseClicked
+    }//GEN-LAST:event_tabelaFuncionariosMouseClicked
 
-    private void jButton_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EditarActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         //editarFuncionario();
-        control.editarFuncionario(id, Txt_loginEditar.getText(), text_nome.getText(), text_email.getText(),text_login.getText(),text_senha.getText());
+        control.editarFuncionario(id, Txt_loginEditar.getText(), txtName.getText(), txtEmail.getText(),txtLogin.getText(),txtPassword.getText());
         Listar(); 
         limparTela();
-    }//GEN-LAST:event_jButton_EditarActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void cb_nomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cb_nomePopupMenuWillBecomeVisible
+    private void cbNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbNamePopupMenuWillBecomeVisible
         // TODO add your handling code here:
-        listarNomes(cb_login.getSelectedItem().toString());
-    }//GEN-LAST:event_cb_nomePopupMenuWillBecomeVisible
+        listarNomes(cbLogin.getSelectedItem().toString());
+    }//GEN-LAST:event_cbNamePopupMenuWillBecomeVisible
 
-    private void cb_loginPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cb_loginPopupMenuWillBecomeVisible
+    private void cbLoginPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbLoginPopupMenuWillBecomeVisible
         // TODO add your handling code here:
         listarLogin();
-    }//GEN-LAST:event_cb_loginPopupMenuWillBecomeVisible
+    }//GEN-LAST:event_cbLoginPopupMenuWillBecomeVisible
 
-    private void jButton_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PesquisarActionPerformed
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
         pesquisarFuncionario();
-    }//GEN-LAST:event_jButton_PesquisarActionPerformed
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         
-        if(control.cadastrarFuncionarios(text_nome.getText(), text_email.getText(),text_login.getText(),text_senha.getText())){
+        if(control.cadastrarFuncionarios(txtName.getText(), txtEmail.getText(),txtLogin.getText(),txtPassword.getText())){
             JOptionPane.showMessageDialog(null, "Funcionario cadastrado com Sucesso!");
         }else{
             System.out.println("teste");
@@ -378,15 +398,15 @@ public class TelaFuncionario extends javax.swing.JFrame {
         }
         Listar();  
         limparTela();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void jButton_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
         //excluirFuncionario();
         control.excluirFuncionario(id, Txt_loginEditar.getText());
         Listar(); 
         limparTela();
-    }//GEN-LAST:event_jButton_ExcluirActionPerformed
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,23 +460,24 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Txt_loginEditar;
-    private javax.swing.JComboBox<String> cb_login;
-    private javax.swing.JComboBox<String> cb_nome;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton_Editar;
-    private javax.swing.JButton jButton_Excluir;
-    private javax.swing.JButton jButton_Pesquisar;
-    private javax.swing.JLabel jLabel_Login;
-    private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JLabel jLabel_Senha;
-    private javax.swing.JLabel jLabel_email;
-    private javax.swing.JLabel jLabel_pesLogin;
-    private javax.swing.JLabel jLabel_pesNome;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JComboBox<String> cbLogin;
+    private javax.swing.JComboBox<String> cbName;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelLogin;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelPesLogin;
+    private javax.swing.JLabel jLabelPesNome;
+    private javax.swing.JLabel jLabelSenha;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabela_Funcionarios;
-    private javax.swing.JTextField text_email;
-    private javax.swing.JTextField text_login;
-    private javax.swing.JTextField text_nome;
-    private javax.swing.JTextField text_senha;
+    private javax.swing.JTable tabelaFuncionarios;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
