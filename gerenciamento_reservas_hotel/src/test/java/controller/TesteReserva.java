@@ -56,7 +56,7 @@ public class TesteReserva {
     
     @BeforeEach
     public void setUpClass() {
-        funcDAO.cadastrarFuncionario(new Funcionario(0, "Pedro", "pedro@hotmail.com", "pedro", "0704"));
+        funcDAO.cadastrarFuncionario(new Funcionario(0, "Marcos", "pedro@hotmail.com", "marcos", "1234"));
         andarDAO.cadastarAndar(new Andar(0, 1, funcDAO.getFuncionarios(1)));
         quartoDAO.cadastarQuarto(new Quarto(0, 101, 2, "Básico", 1, "Desc", 101, andarDAO.buscarIdAndar(1)));
     }
@@ -65,7 +65,7 @@ public class TesteReserva {
     public void limpaTabelaFuncionarios() {
         funcDAO.excluirTudoBase();
     }
-
+/*
     @Test
     public void testeCadastroReservaMock() throws Exception{
         var funcEx = new Funcionario(1, "carlos", "carlos@hotmail.com", "carlos", "123");
@@ -86,7 +86,7 @@ public class TesteReserva {
         genReserva.setFuncionarioDAO(mockFuncDAO);
         genReserva.setQuartoDAO(mockQuartoDAO);
         
-        assertEquals(true, genReserva.realizaReserva("04-12-2021", "07-12-2021", "carlos", "548135464", "14-996977494", 1, 1));
+        assertEquals(true, genReserva.realizaReserva("04-12-2022", "07-12-2022", "carlos", "548135464", "14-99697-7494", 1, 1));
     }
     
     @Test
@@ -107,40 +107,44 @@ public class TesteReserva {
     public void testeCadastroReservaMockEntradaEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("  -  -    ", "07-12-2021", "carlos", "548135464", "14-996977494", 1, 1));
+        assertEquals(false, genReserva.realizaReserva("  -  -    ", "07-12-2021", "carlos", "548135464", "14-99697-7494", 1, 1));
     }
     
     @Test
     public void testeCadastroReservaMockNomeEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "", "548135464", "14-996977494", 1, 1));
+        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "", "548135464", "14-99697-7494", 1, 1));
     }
     
     @Test
     public void testeCadastroReservaMockNomeNulll() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", null, "548135464", "14-996977494", 1, 1));
+        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", null, "548135464", "14-99697-7494", 1, 1));
     }
     
     @Test
     public void testeCadastroReservaMockDocNulll() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", null,"14-996977494", 1, 1));
+        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", null,"14-99697-7494", 1, 1));
     }
     
     @Test
     public void testeCadastroReservaMockDocEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "","14-996977494", 1, 1));
+        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "","14-99697-7494", 1, 1));
     }
     
     @Test
     public void testeCadastroReservaMockContatoEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
+        
+        var resMock = mock(GerenciaReserva.class);
+        
+        when(resMock.validaContatoCliente(anyString())).thenReturn(false);
         
         assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "548135464", "", 1, 1));
     }
@@ -163,15 +167,43 @@ public class TesteReserva {
     public void testeCadastroReservaMockFuncIdMenorUm() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "14", "14-996977494", 0, 1));
+        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "14", "14-99697-7494", 0, 1));
     }
     
     @Test
     public void testeCadastroReservaMockQuartoIdMenorUm() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "14", "14-996977494", 1, 0));
+        assertEquals(false, genReserva.realizaReserva("27-11-2021", "07-12-2021", "carlos", "14", "14-99697-7494", 1, 0));
     }
+    
+    @Test
+    public void testValidaCadastroReservaContatoErrado() throws Exception{        
+        var genReserva = new GerenciaReserva();
+        genReserva.setReservaDAO(reservDAO);
+        
+        assertFalse(genReserva.realizaReserva("27-11-2022", "07-12-2022", "carlos", "14", "14-99697-749", 1, 1));
+    } 
+    
+    @Test
+    public void testValidaEditarReservaContatoErrado() throws Exception{        
+        var funcEx = new Funcionario(1, "carlos", "carlos@hotmail.com", "carlos", "123");
+        var quartEx = new Quarto(1, 101, 2, "Basico", 1, "Desc", 101, new Andar(1, 1, funcEx));
+        var reservEx = new Reserva(1, "27-11-2022", "12-12-2022", "carlos", "14-99697-7494", "5465456", funcEx, quartEx);
+        
+        var mockReservDAO = mock(ReservaDAO.class);
+        var mockFuncDAO = mock(FuncionarioDAO.class);
+        var mockQuartoDAO = mock(QuartoDAO.class);
+        
+        when(mockReservDAO.buscaReserva(anyString(), anyInt())).thenReturn(reservEx);
+        when(mockReservDAO.editarReserva(anyObject())).thenReturn(false);
+        
+        var genReserva = new GerenciaReserva();
+        
+        genReserva.setReservaDAO(mockReservDAO);
+        
+        assertFalse(genReserva.editarReserva("27-11-2021", 101, "carlos", "54650031", "14-95643-546 "));
+    } 
     
     @Test
     public void testeEditarReservaMock() throws Exception{
@@ -197,49 +229,49 @@ public class TesteReserva {
     public void testeEditarReservaMockEntradaNull() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva(null, 1, "carlos", "548135464", "14-996977494"));
+        assertEquals(false, genReserva.editarReserva(null, 1, "carlos", "548135464", "14-99697-7494"));
     }
     
     @Test
     public void testeEditarReservaMockEntradaEmptyFormatacao() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("", 1, "carlos", "548135464", "14-996977494"));
+        assertEquals(false, genReserva.editarReserva("", 1, "carlos", "548135464", "14-99697-7494"));
     }
     
     @Test
     public void testeEditarReservaMockEntradaEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("  /  /    ", 1, "carlos", "548135464", "14-996977494"));
+        assertEquals(false, genReserva.editarReserva("  /  /    ", 1, "carlos", "548135464", "14-99697-7494"));
     }
     
     @Test
     public void testeEditarReservaMockNomeEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, "", "548135464", "14-996977494"));
+        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, "", "548135464", "14-99697-7494"));
     }
     
     @Test
     public void testeEditarReservaMockNomeNulll() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, null, "548135464", "14-996977494"));
+        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, null, "548135464", "14-99697-7494"));
     }
     
     @Test
     public void testeEditarReservaMockDocNulll() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, "carlos", null, "14-996977494"));
+        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, "carlos", null, "14-99697-7494"));
     }
     
     @Test
     public void testeEditarReservaMockDocEmpty() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, "carlos", "","14-996977494"));
+        assertEquals(false, genReserva.editarReserva("27/11/2021", 1, "carlos", "","14-99697-7494"));
     }
     
     @Test
@@ -267,7 +299,7 @@ public class TesteReserva {
     public void testeEditarReservaMockQuartoIdMenorUm() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        assertEquals(false, genReserva.editarReserva("27/11/2021", 0, "carlos", "1546624", "14-996977494"));
+        assertEquals(false, genReserva.editarReserva("27/11/2021", 0, "carlos", "1546624", "14-99697-7494"));
     }
     
     @Test
@@ -425,7 +457,7 @@ public class TesteReserva {
         
         genReserva.setReservaDAO(mockReservDAO);
         
-        assertEquals("Pedro", genReserva.buscarReservas("", "", 0, "carlos", "1421481").get(0).getClienteReserva());
+        assertEquals("carlos", genReserva.buscarReservas("", "", 0, "carlos", "1421481").get(0).getClienteReserva());
     }
     
     @Test
@@ -447,7 +479,7 @@ public class TesteReserva {
         
         genReserva.setReservaDAO(mockReservDAO);
         
-        assertEquals("Pedro", genReserva.buscarReservas("", "", 0, "carlos", "").get(0).getClienteReserva());
+        assertEquals("carlos", genReserva.buscarReservas("", "", 0, "carlos", "").get(0).getClienteReserva());
     }
     
     @Test
@@ -483,24 +515,24 @@ public class TesteReserva {
     public void testeCadastroReservas() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        Reserva res = new Reserva(0, "27-11-2021", "07-12-2021", "Amaral", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
+        Reserva res = new Reserva(0, "27-11-2022", "07-12-2022", "Amaral", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
         reservDAO.cadastrarReserva(res);
-        assertEquals("2021-11-27", reservDAO.buscaReserva("2021-11-27", 101).getEntradaReserva());
+        assertEquals("2022-11-27", reservDAO.buscaReserva("2022-11-27", 101).getEntradaReserva());
     }
     
     @Test
     public void testeEditarReservas() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        Reserva res = new Reserva(0, "27-11-2021", "07-12-2021", "Amaral", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
+        Reserva res = new Reserva(0, "27-11-2022", "07-12-2022", "Amaral", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
         reservDAO.cadastrarReserva(res);
-        res.setClienteReserva("Arnaldo");
+        res.setClienteReserva("Amaral");
         res.setDocumentoReserva("2329");
         res.setTelefoneReserva("55-555");
-        res.setEntradaReserva("2021-11-27");
-        res.setSaidaCliente("2021-12-07");
+        res.setEntradaReserva("2022-11-27");
+        res.setSaidaCliente("2022-12-07");
         reservDAO.editarReserva(res);
-        assertEquals("Arnaldo", reservDAO.buscaReserva("2021-11-27", 101).getClienteReserva());
+        assertEquals("Amaral", reservDAO.buscaReserva("2022-11-27", 101).getClienteReserva());
     }
     
     @Test
@@ -522,9 +554,9 @@ public class TesteReserva {
     public void testeBuscarEntradaSaidaQuartoReservas() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        Reserva res = new Reserva(0, "27-11-2021", "07-12-2021", "Amaral", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
+        Reserva res = new Reserva(0, "27-11-2022", "07-12-2022", "Amaral", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
         reservDAO.cadastrarReserva(res);
-        assertEquals("Amaral", reservDAO.buscReservasEntradaSaidaNumQuarto("2021-11-27", "2021-12-07", 101).get(0).getClienteReserva());
+        assertEquals("Amaral", reservDAO.buscReservasEntradaSaidaNumQuarto("2022-11-27", "2022-12-07", 101).get(0).getClienteReserva());
     }
     
     @Test
@@ -540,9 +572,9 @@ public class TesteReserva {
     public void testeBuscarSaidaQuartoReservas() throws Exception{
         var genReserva = new GerenciaReserva();
         
-        Reserva res = new Reserva(0, "27-11-2021", "07-12-2021", "Amarguinho", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
+        Reserva res = new Reserva(0, "27-11-2022", "07-12-2022", "Amarguinho", "14-99697-7494", "1412441", funcDAO.getFuncionarios(1), quartoDAO.buscarIdQuarto(1));
         reservDAO.cadastrarReserva(res);
-        assertEquals("Amarguinho", reservDAO.buscReservasSaidaNumQuarto("2021-12-07", 101).get(0).getClienteReserva());
+        assertEquals("Amarguinho", reservDAO.buscReservasSaidaNumQuarto("2022-12-07", 101).get(0).getClienteReserva());
     }
     
     @Test
@@ -575,8 +607,8 @@ public class TesteReserva {
     @Test
     public void testDataValida() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date data1 = sdf.parse("20-12-2021");
-        Date data2 = sdf.parse("25-12-2021");
+        Date data1 = sdf.parse("20-12-2022");
+        Date data2 = sdf.parse("25-12-2022");
         var dataController = new ControllerData();
         
         assertTrue(dataController.cadastrarData(data1,data2));
@@ -592,14 +624,14 @@ public class TesteReserva {
         var res = assertThrows(Exception.class,() -> {
             dataController.cadastrarData(data1,data2);
         }).getMessage();
-        assertEquals("ERRO:Prazo maior que 14 dias",res);
+        assertEquals("ERRO:Data Inicio não pode ser inferior a data atual",res);
     }
 
     @Test
     public void testDataFimAnteriorADataInicio() throws ParseException{
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date data1 = sdf.parse("15-12-2021");
-        Date data2 = sdf.parse("01-12-2021");
+        Date data1 = sdf.parse("15-12-2022");
+        Date data2 = sdf.parse("01-12-2022");
         var dataController = new ControllerData();
 
         var res = assertThrows(Exception.class,() -> {
@@ -611,8 +643,8 @@ public class TesteReserva {
     @Test
     public void testDataFimIgualADataInicio() throws ParseException{
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date data1 = sdf.parse("15-12-2021");
-        Date data2 = sdf.parse("15-12-2021");
+        Date data1 = sdf.parse("15-12-2022");
+        Date data2 = sdf.parse("15-12-2022");
         var dataController = new ControllerData();
 
         var res = assertThrows(Exception.class,() -> {
@@ -643,5 +675,26 @@ public class TesteReserva {
         }).getMessage();
         
         assertEquals("Não foi possivel converter a data informada",res);
+    }
+  */  
+    @Test
+    public void testCpfInvalido() throws Exception{
+       var genReserva = new GerenciaReserva();
+        
+       genReserva.setReservaDAO(reservDAO);
+       genReserva.setFuncionarioDAO(funcDAO);
+       genReserva.setQuartoDAO(quartoDAO);
+       
+       assertFalse(genReserva.realizaReserva("04-12-2022", "07-12-2022", "Jorge", "999999999", "14-996977494", 1, 101));
+    }
+    @Test
+    public void testCpfValido() throws Exception{
+       var genReserva = new GerenciaReserva();
+       
+       genReserva.setReservaDAO(reservDAO);
+       genReserva.setFuncionarioDAO(funcDAO);
+       genReserva.setQuartoDAO(quartoDAO);
+       
+       assertTrue(genReserva.realizaReserva("04-07-2022", "12-07-2022", "Jorge", "45295985865", "14-996977494", 1, 101));
     }
 }

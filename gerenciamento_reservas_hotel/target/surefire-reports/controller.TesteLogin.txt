@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: controller.TesteLogin
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.549 s - in controller.TesteLogin
+<<<<<<< HEAD
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in controller.TesteLogin
+controller.TesteLogin  Time elapsed: 0.026 s  <<< ERROR!
+java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteLogin.setUpClass(TesteLogin.java:27)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteLogin.setUpClass(TesteLogin.java:27)
+
+=======
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in controller.TesteLogin
+>>>>>>> origin/dev

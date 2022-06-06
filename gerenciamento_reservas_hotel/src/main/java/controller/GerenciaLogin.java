@@ -5,6 +5,7 @@
 package controller;
 
 import dao.FuncionarioDAO;
+import javax.swing.JOptionPane;
 
 public class GerenciaLogin {
 
@@ -20,9 +21,11 @@ public class GerenciaLogin {
         if (login != "") {
             if (senha != "")idLogin = funcDAO.validaLogin(login, senha);
             else {
+                
                 throw new NullPointerException("Verifique o campo de senha pois está vazio");
             }
         } else {
+           
             throw new NullPointerException("Verifique o campo de login pois está vazio");
         }
         return idLogin;

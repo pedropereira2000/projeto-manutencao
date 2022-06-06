@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: controller.TesteGerenciaAndar
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.76 s - in controller.TesteGerenciaAndar
+<<<<<<< HEAD
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in controller.TesteGerenciaAndar
+controller.TesteGerenciaAndar  Time elapsed: 0 s  <<< ERROR!
+java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteGerenciaAndar.setUpClass(TesteGerenciaAndar.java:37)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteGerenciaAndar.setUpClass(TesteGerenciaAndar.java:37)
+
+=======
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.007 s - in controller.TesteGerenciaAndar
+>>>>>>> origin/dev

@@ -166,10 +166,15 @@ public class TelaReservas extends javax.swing.JFrame {
         lblTelCli.setText("Telefone Cliente");
 
         try {
-            ftxtDocCli.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            ftxtDocCli.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        ftxtDocCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftxtDocCliActionPerformed(evt);
+            }
+        });
 
         try {
             ftxtTelCli.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-9####-####")));
@@ -328,31 +333,38 @@ public class TelaReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_DataInicioPropertyChange
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        if(DataFim.isEnabled()==false&&DataInicio.isEnabled()==false&&cbxQuartosVagos.isEnabled()==false){
-            Date dataInicio = DataInicio.getDate();//transforma o obj calendar em obj Date
-            SimpleDateFormat sddia = new SimpleDateFormat("dd-MM-yyyy");//cria um obj de formatação de data
-            String diaEntrada = sddia.format(dataInicio);
-            String idQuarto = String.valueOf(cbxQuartosVagos.getSelectedItem());
-            int pos = idQuarto.indexOf("-");
-            controlRes.editarReserva(diaEntrada, Integer.parseInt(idQuarto.substring(pos+1, idQuarto.length())), txtCliName.getText(), ftxtDocCli.getText(),ftxtTelCli.getText());
-            limparCampos();
+        if(txtCliName.getText().isEmpty()||ftxtDocCli.getText().isEmpty()||ftxtTelCli.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Erro: Campos Vazios");
         }else{
-            Date dataInicio = DataInicio.getDate();//transforma o obj calendar em obj Date
-            Date dataFim = DataFim.getDate();//transforma o obj calendar em obj Date
-            SimpleDateFormat sddia = new SimpleDateFormat("dd-MM-yyyy");//cria um obj de formatação de data
-            String diaFim = sddia.format(dataFim);
-
-            String diaEntrada = sddia.format(dataInicio);
-            String idQuarto = String.valueOf(cbxQuartosVagos.getSelectedItem());
-            int pos = idQuarto.indexOf("-");
-            try {
-                //Integer.parseInt(idQuarto.substring(pos+1, idQuarto.length()))
-                controlRes.realizaReserva(diaEntrada, diaFim, txtCliName.getText(), ftxtDocCli.getText(), ftxtTelCli.getText(), 1, Integer.parseInt(idQuarto.substring(pos+1, idQuarto.length())));
+            if(DataFim.isEnabled()==false&&DataInicio.isEnabled()==false&&cbxQuartosVagos.isEnabled()==false){
+                Date dataInicio = DataInicio.getDate();//transforma o obj calendar em obj Date
+                SimpleDateFormat sddia = new SimpleDateFormat("dd-MM-yyyy");//cria um obj de formatação de data
+                String diaEntrada = sddia.format(dataInicio);
+                String idQuarto = String.valueOf(cbxQuartosVagos.getSelectedItem());
+                int pos = idQuarto.indexOf("-");
+                controlRes.editarReserva(diaEntrada, Integer.parseInt(idQuarto.substring(pos+1, idQuarto.length())), txtCliName.getText(), ftxtDocCli.getText(),ftxtTelCli.getText());
                 limparCampos();
-            } catch (Exception ex) {
-                Logger.getLogger(TelaReservas.class.getName()).log(Level.SEVERE, null, ex);
+            }else{
+                Date dataInicio = DataInicio.getDate();//transforma o obj calendar em obj Date
+                Date dataFim = DataFim.getDate();//transforma o obj calendar em obj Date
+                SimpleDateFormat sddia = new SimpleDateFormat("dd-MM-yyyy");//cria um obj de formatação de data
+                String diaFim = sddia.format(dataFim);
+
+                String diaEntrada = sddia.format(dataInicio);
+                String idQuarto = String.valueOf(cbxQuartosVagos.getSelectedItem());
+                int pos = idQuarto.indexOf("-");
+                try {
+                    //Integer.parseInt(idQuarto.substring(pos+1, idQuarto.length()))
+
+                    controlRes.realizaReserva(diaEntrada, diaFim, txtCliName.getText(), ftxtDocCli.getText(), ftxtTelCli.getText(), 1, Integer.parseInt(idQuarto.substring(pos+1, idQuarto.length())));
+                    limparCampos();
+                } catch (Exception ex) {
+                    Logger.getLogger(TelaReservas.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
+        
+        
         
     }//GEN-LAST:event_btnReservarActionPerformed
 
@@ -373,6 +385,10 @@ public class TelaReservas extends javax.swing.JFrame {
         controlRes.excluirReserva(entrada, quartoSelect);
         limparCampos();
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void ftxtDocCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftxtDocCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftxtDocCliActionPerformed
 
     /**
      * @param args the command line arguments

@@ -347,9 +347,15 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private void jButton_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EditarActionPerformed
         // TODO add your handling code here:
         //editarFuncionario();
-        control.editarFuncionario(id, Txt_loginEditar.getText(), text_nome.getText(), text_email.getText(),text_login.getText(),text_senha.getText());
-        Listar(); 
-        limparTela();
+        
+        if(text_nome.getText().isEmpty()||text_email.getText().isEmpty()||text_login.getText().isEmpty()||text_senha.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro: Campos Vazios");
+                
+        }else{
+            control.editarFuncionario(id, Txt_loginEditar.getText(), text_nome.getText(), text_email.getText(),text_login.getText(),text_senha.getText());
+            Listar(); 
+            limparTela();
+        }
     }//GEN-LAST:event_jButton_EditarActionPerformed
 
     private void cb_nomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cb_nomePopupMenuWillBecomeVisible
@@ -369,23 +375,30 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        if(control.cadastrarFuncionarios(text_nome.getText(), text_email.getText(),text_login.getText(),text_senha.getText())){
-            JOptionPane.showMessageDialog(null, "Funcionario cadastrado com Sucesso!");
+        if(text_nome.getText().isEmpty()||text_email.getText().isEmpty()||text_login.getText().isEmpty()||text_senha.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro: Campos Vazios");
+                
         }else{
-            System.out.println("teste");
-            JOptionPane.showMessageDialog(null, "Funcionario não cadastrado!");
+            if(control.cadastrarFuncionarios(text_nome.getText(), text_email.getText(),text_login.getText(),text_senha.getText())){
+                JOptionPane.showMessageDialog(null, "Funcionario cadastrado com Sucesso!");
+            }else{
+                JOptionPane.showMessageDialog(null, "Funcionario não cadastrado!");
+            }
+            Listar();  
+            limparTela();
+        
         }
-        Listar();  
-        limparTela();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirActionPerformed
         // TODO add your handling code here:
         //excluirFuncionario();
-        control.excluirFuncionario(id, Txt_loginEditar.getText());
-        Listar(); 
-        limparTela();
+
+            control.excluirFuncionario(id, Txt_loginEditar.getText());
+            Listar(); 
+            limparTela();
+        
     }//GEN-LAST:event_jButton_ExcluirActionPerformed
 
     /**
