@@ -23,7 +23,7 @@ public class ReservaDAO {
     }
     
     public void setConnection(){
-        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","Pedro@0704");
+        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","3621");
     }
 
     

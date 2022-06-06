@@ -9,6 +9,7 @@ import controller.ControllerData;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class TelaPrincipal extends javax.swing.JFrame {
     private ControllerData reportHist = new ControllerData();
@@ -142,8 +143,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaLogin tlLog = new TelaLogin();
-        tlLog.setVisible(true);
+        int confire = JOptionPane.showConfirmDialog(null, "Deseja realmente finalizar a aplicação?","Atenção",JOptionPane.YES_NO_OPTION);
+        if(confire == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null, "Aplicação encerrada");
+            new TelaLogin().show();
+            dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

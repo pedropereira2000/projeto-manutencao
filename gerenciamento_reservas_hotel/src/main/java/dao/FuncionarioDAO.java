@@ -17,7 +17,7 @@ public class FuncionarioDAO {
     }
     
     public void setConnection(){
-        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","Pedro@0704");
+        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","3621");
     }
 
     //Cadastrar Funcionario
@@ -339,7 +339,15 @@ public class FuncionarioDAO {
             }
 
         } catch (SQLException erro) {
-            throw new RuntimeException("Login e senha informados não existe");
+            if(user.isEmpty()){
+                return 0;
+            }else if(passWord.isEmpty()){
+                return 0;
+            }else{
+                JOptionPane.showMessageDialog(null, "Login ou senha informados não existe");
+                throw new RuntimeException("Login e senha informados não existe");
+            }
+            
         } 
     }
     

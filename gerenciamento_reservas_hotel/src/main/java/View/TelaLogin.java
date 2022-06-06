@@ -127,15 +127,27 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int idLogin = log.VerificaAcesso(txtUser.getText(), txtPass.getText());
-        if(idLogin != 0){
-            TelaPrincipal tlPrinc = new TelaPrincipal();
-            tlPrinc.setFuncionario(idLogin);
-            tlPrinc.setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Por favor verifique os campos de login e senha");
-        }
+             if(txtUser.getText().isEmpty()&&txtPass.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro: Login e senha Vazios");
+                
+            }else if(txtPass.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro: senha Vazia");
+                
+            }else if(txtUser.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro: Login vazio");
+                
+            }else{
+                int idLogin = log.VerificaAcesso(txtUser.getText(), txtPass.getText());
+                if(idLogin != 0){
+                    TelaPrincipal tlPrinc = new TelaPrincipal();
+                    tlPrinc.setFuncionario(idLogin);
+                    tlPrinc.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Por favor verifique os campos de login e senha");
+                }
+            }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

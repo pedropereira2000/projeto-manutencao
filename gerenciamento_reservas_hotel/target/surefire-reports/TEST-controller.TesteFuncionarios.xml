@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="controller.TesteFuncionarios" time="0.363" tests="1" errors="1" skipped="0" failures="0">
+=======
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="controller.TesteFuncionarios" time="2.396" tests="31" errors="0" skipped="0" failures="0">
+>>>>>>> origin/dev
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
+<<<<<<< HEAD
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="E:\desktop\UTFPR\Manutencao\projeto-manutencao\gerenciamento_reservas_hotel\target\test-classes;E:\desktop\UTFPR\Manutencao\projeto-manutencao\gerenciamento_reservas_hotel\target\classes;C:\Users\mvsro\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\mvsro\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\mvsro\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\mvsro\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\mvsro\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\mvsro\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\mvsro\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\mvsro\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\mvsro\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\mvsro\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\mvsro\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+=======
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.class.path" value="/home/pedropereira/Área de Trabalho/UTFPR/Manutencao/Pedro/projeto-manutencao/gerenciamento_reservas_hotel/target/test-classes:/home/pedropereira/Área de Trabalho/UTFPR/Manutencao/Pedro/projeto-manutencao/gerenciamento_reservas_hotel/target/classes:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports/6.19.1/jasperreports-6.19.1.jar:/home/pedropereira/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/pedropereira/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/pedropereira/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/home/pedropereira/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/home/pedropereira/.m2/repository/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar:/home/pedropereira/.m2/repository/com/lowagie/itext/2.1.7.js9/itext-2.1.7.js9.jar:/home/pedropereira/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.68/bcprov-jdk15on-1.68.jar:/home/pedropereira/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar:/home/pedropereira/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar:/home/pedropereira/.m2/repository/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.1/jackson-core-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.1/jackson-databind-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.1/jackson-annotations-2.13.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.1/jackson-dataformat-xml-2.13.1.jar:/home/pedropereira/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/home/pedropereira/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports-fonts/6.19.1/jasperreports-fonts-6.19.1.jar:/home/pedropereira/.m2/repository/net/sf/jasperreports/jasperreports-functions/6.19.1/jasperreports-functions-6.19.1.jar:/home/pedropereira/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/pedropereira/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/pedropereira/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/pedropereira/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/home/pedropereira/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/pedropereira/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:/home/pedropereira/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/home/pedropereira/.m2/repository/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar:/home/pedropereira/.m2/repository/com/google/protobuf/protobuf-java/3.19.4/protobuf-java-3.19.4.jar:"/>
     <property name="java.vm.vendor" value="Flathub"/>
+>>>>>>> origin/dev
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://flathub.org"/>
     <property name="user.timezone" value=""/>
@@ -14,6 +25,34 @@
     <property name="os.name" value="Linux"/>
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+<<<<<<< HEAD
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin"/>
+    <property name="sun.java.command" value="C:\Users\mvsro\AppData\Local\Temp\surefire7944594530038707115\surefirebooter16619657320382620446.jar C:\Users\mvsro\AppData\Local\Temp\surefire7944594530038707115 2022-05-25T19-53-25_848-jvmRun1 surefire2145770385593221662tmp surefire_011206152392187672008tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="controller.TesteFuncionarios,controller.TesteGerenciaAndar,controller.TesteGerenciaQuarto,controller.TesteLogin,controller.TesteReserva"/>
+    <property name="surefire.test.class.path" value="E:\desktop\UTFPR\Manutencao\projeto-manutencao\gerenciamento_reservas_hotel\target\test-classes;E:\desktop\UTFPR\Manutencao\projeto-manutencao\gerenciamento_reservas_hotel\target\classes;C:\Users\mvsro\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\mvsro\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\mvsro\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\mvsro\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\mvsro\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\mvsro\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\mvsro\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\mvsro\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\mvsro\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\mvsro\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\mvsro\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\mvsro"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.13"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="E:\desktop\UTFPR\Manutencao\projeto-manutencao\gerenciamento_reservas_hotel"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\mvsro\AppData\Local\Temp\surefire7944594530038707115\surefirebooter16619657320382620446.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.13+10-LTS-370"/>
+    <property name="user.name" value="mvsro"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+=======
     <property name="sun.boot.library.path" value="/app/jdk/lib"/>
     <property name="sun.java.command" value="/home/pedropereira/Área de Trabalho/UTFPR/Manutencao/Pedro/projeto-manutencao/gerenciamento_reservas_hotel/target/surefire/surefirebooter114807449028830005.jar /home/pedropereira/Área de Trabalho/UTFPR/Manutencao/Pedro/projeto-manutencao/gerenciamento_reservas_hotel/target/surefire 2022-06-06T19-37-27_852-jvmRun1 surefire6583313422983384322tmp surefire_010816975945861445460tmp"/>
     <property name="jdk.debug" value="release"/>
@@ -38,9 +77,24 @@
     <property name="path.separator" value=":"/>
     <property name="os.version" value="5.15.0-35-generic"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+>>>>>>> origin/dev
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="java.vendor.version" value="18.9"/>
+<<<<<<< HEAD
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\mvsro\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\mvsro\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.13"/>
+    <property name="user.dir" value="E:\desktop\UTFPR\Manutencao\projeto-manutencao\gerenciamento_reservas_hotel"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Git\cmd;C:\TDM-GCC-64\bin;E:\Node\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\mvsro\AppData\Local\Microsoft\WindowsApps;C:\Users\mvsro\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mvsro\AppData\Local\GitHubDesktop\bin;C:\Program Files\Java\jdk-16.0.2\bin;C:\Users\mvsro\AppData\Roaming\npm;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+=======
     <property name="maven.ext.class.path" value="/app/netbeans/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="localRepository" value="/home/pedropereira/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
@@ -52,12 +106,22 @@
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.library.path" value=":/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+>>>>>>> origin/dev
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Flathub"/>
     <property name="java.vm.version" value="11.0.14+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
+<<<<<<< HEAD
+  <testcase name="controller.TesteFuncionarios" classname="controller.TesteFuncionarios" time="0.362">
+    <error message="java.sql.SQLException: Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)" type="java.lang.RuntimeException">java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteFuncionarios.setUpClass(TesteFuncionarios.java:28)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteFuncionarios.setUpClass(TesteFuncionarios.java:28)
+</error>
+  </testcase>
+=======
   <testcase name="testBuscarAndarMock" classname="controller.TesteFuncionarios" time="0.048"/>
   <testcase name="testThrowExceptionExcluir" classname="controller.TesteFuncionarios" time="0.055"/>
   <testcase name="testThrowExceptionCadastro" classname="controller.TesteFuncionarios" time="0.042"/>
@@ -89,4 +153,5 @@
   <testcase name="testEditarFuncionariosCamposVazios" classname="controller.TesteFuncionarios" time="0.048"/>
   <testcase name="testThrowExceptiosListaNomesInvalidos" classname="controller.TesteFuncionarios" time="0.04"/>
   <testcase name="testThrowExceptiosNomesFuncionarios" classname="controller.TesteFuncionarios" time="0.051"/>
+>>>>>>> origin/dev
 </testsuite>
