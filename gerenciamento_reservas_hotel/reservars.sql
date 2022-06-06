@@ -18,30 +18,30 @@ USE `mydb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `andar`
+-- Table structure for table `Andar`
 --
 
-DROP TABLE IF EXISTS `andar`;
+DROP TABLE IF EXISTS `Andar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `andar` (
+CREATE TABLE `Andar` (
   `idAndar` int NOT NULL AUTO_INCREMENT,
   `numAndar` int NOT NULL,
   `Funcionario_idFuncionario` int NOT NULL,
   PRIMARY KEY (`idAndar`),
   KEY `fk_Andar_Funcionario1_idx` (`Funcionario_idFuncionario`),
-  CONSTRAINT `fk_Andar_Funcionario1` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `funcionario` (`idFuncionario`)
+  CONSTRAINT `fk_Andar_Funcionario1` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `Funcionario` (`idFuncionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `andar`
+-- Dumping data for table `Andar`
 --
 
-LOCK TABLES `andar` WRITE;
-/*!40000 ALTER TABLE `andar` DISABLE KEYS */;
-INSERT INTO `andar` VALUES (2,1,1),(3,2,1);
-/*!40000 ALTER TABLE `andar` ENABLE KEYS */;
+LOCK TABLES `Andar` WRITE;
+/*!40000 ALTER TABLE `Andar` DISABLE KEYS */;
+INSERT INTO `Andar` VALUES (2,1,1),(3,2,1);
+/*!40000 ALTER TABLE `Andar` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,13 +102,13 @@ INSERT INTO `databasechangeloglock` VALUES (1,_binary '','2021-11-27 12:01:56',
 UNLOCK TABLES;
 
 --
--- Table structure for table `funcionario`
+-- Table structure for table `Funcionario`
 --
 
-DROP TABLE IF EXISTS `funcionario`;
+DROP TABLE IF EXISTS `Funcionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `funcionario` (
+CREATE TABLE `Funcionario` (
   `idFuncionario` int NOT NULL AUTO_INCREMENT,
   `nomeFuncionario` varchar(50) NOT NULL,
   `emailFuncionario` varchar(50) NOT NULL,
@@ -122,20 +122,20 @@ CREATE TABLE `funcionario` (
 -- Dumping data for table `funcionario`
 --
 
-LOCK TABLES `funcionario` WRITE;
-/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,'Pedro','pedro@hotmail.com','pedro','0704');
-/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+LOCK TABLES `Funcionario` WRITE;
+/*!40000 ALTER TABLE `Funcionario` DISABLE KEYS */;
+INSERT INTO `Funcionario` VALUES (1,'Pedro','pedro@hotmail.com','pedro','0704');
+/*!40000 ALTER TABLE `Funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `quarto`
+-- Table structure for table `Quarto`
 --
 
-DROP TABLE IF EXISTS `quarto`;
+DROP TABLE IF EXISTS `Quarto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `quarto` (
+CREATE TABLE `Quarto` (
   `idQuarto` int NOT NULL AUTO_INCREMENT,
   `numQuarto` int NOT NULL,
   `numCamasQuarto` int NOT NULL,
@@ -146,28 +146,28 @@ CREATE TABLE `quarto` (
   `Andar_idAndar` int NOT NULL,
   PRIMARY KEY (`idQuarto`),
   KEY `fk_Quarto_Andar1_idx` (`Andar_idAndar`),
-  CONSTRAINT `fk_Quarto_Andar1` FOREIGN KEY (`Andar_idAndar`) REFERENCES `andar` (`idAndar`)
+  CONSTRAINT `fk_Quarto_Andar1` FOREIGN KEY (`Andar_idAndar`) REFERENCES `Andar` (`idAndar`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `quarto`
+-- Dumping data for table `Quarto`
 --
 
-LOCK TABLES `quarto` WRITE;
-/*!40000 ALTER TABLE `quarto` DISABLE KEYS */;
-INSERT INTO `quarto` VALUES (1,101,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',101,2),(2,102,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',102,2),(3,201,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',201,3),(4,202,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',202,3),(5,203,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',203,3),(6,204,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',204,3);
-/*!40000 ALTER TABLE `quarto` ENABLE KEYS */;
+LOCK TABLES `Quarto` WRITE;
+/*!40000 ALTER TABLE `Quarto` DISABLE KEYS */;
+INSERT INTO `Quarto` VALUES (1,101,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',101,2),(2,102,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',102,2),(3,201,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',201,3),(4,202,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',202,3),(5,203,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',203,3),(6,204,2,'Básico',1,'Quarto básico possui arcondicionado, frigobar, tv com canais por assinatura',204,3);
+/*!40000 ALTER TABLE `Quarto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reserva`
+-- Table structure for table `Reserva`
 --
 
-DROP TABLE IF EXISTS `reserva`;
+DROP TABLE IF EXISTS `Reserva`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reserva` (
+CREATE TABLE `Reserva` (
   `idReserva` int NOT NULL AUTO_INCREMENT,
   `entradaReserva` date NOT NULL,
   `saidaReserva` date NOT NULL,
@@ -179,19 +179,19 @@ CREATE TABLE `reserva` (
   PRIMARY KEY (`idReserva`),
   KEY `fk_Reserva_Funcionario_idx` (`Funcionario_idFuncionario`),
   KEY `fk_Reserva_Quarto1_idx` (`Quarto_idQuarto`),
-  CONSTRAINT `fk_Reserva_Funcionario` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `funcionario` (`idFuncionario`),
-  CONSTRAINT `fk_Reserva_Quarto1` FOREIGN KEY (`Quarto_idQuarto`) REFERENCES `quarto` (`idQuarto`)
+  CONSTRAINT `fk_Reserva_Funcionario` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `Funcionario` (`idFuncionario`),
+  CONSTRAINT `fk_Reserva_Quarto1` FOREIGN KEY (`Quarto_idQuarto`) REFERENCES `Quarto` (`idQuarto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reserva`
+-- Dumping data for table `Reserva`
 --
 
-LOCK TABLES `reserva` WRITE;
-/*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
-INSERT INTO `reserva` VALUES (6,'2021-12-03','2021-12-06','Amaral','41-92412-4124','124.124.124-12',1,1),(7,'2021-12-03','2021-12-04','Pedrinho','41-92421-4214','416.746.172-86',1,4);
-/*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
+LOCK TABLES `Reserva` WRITE;
+/*!40000 ALTER TABLE `Reserva` DISABLE KEYS */;
+INSERT INTO `Reserva` VALUES (6,'2021-12-03','2021-12-06','Amaral','41-92412-4124','124.124.124-12',1,1),(7,'2021-12-03','2021-12-04','Pedrinho','41-92421-4214','416.746.172-86',1,4);
+/*!40000 ALTER TABLE `Reserva` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -224,39 +224,39 @@ USE `mydb-tests`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `andar`
+-- Table structure for table `Andar`
 --
 
-DROP TABLE IF EXISTS `andar`;
+DROP TABLE IF EXISTS `Andar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `andar` (
+CREATE TABLE `Andar` (
   `idAndar` int NOT NULL AUTO_INCREMENT,
   `numAndar` int NOT NULL,
   `Funcionario_idFuncionario` int NOT NULL,
   PRIMARY KEY (`idAndar`),
   KEY `fk_Andar_Funcionario1_idx` (`Funcionario_idFuncionario`),
-  CONSTRAINT `fk_Andar_Funcionario1` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `funcionario` (`idFuncionario`)
+  CONSTRAINT `fk_Andar_Funcionario1` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `Funcionario` (`idFuncionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `andar`
+-- Dumping data for table `Andar`
 --
 
-LOCK TABLES `andar` WRITE;
-/*!40000 ALTER TABLE `andar` DISABLE KEYS */;
-/*!40000 ALTER TABLE `andar` ENABLE KEYS */;
+LOCK TABLES `Andar` WRITE;
+/*!40000 ALTER TABLE `Andar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Andar` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `funcionario`
+-- Table structure for table `Funcionario`
 --
 
-DROP TABLE IF EXISTS `funcionario`;
+DROP TABLE IF EXISTS `Funcionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `funcionario` (
+CREATE TABLE `Funcionario` (
   `idFuncionario` int NOT NULL AUTO_INCREMENT,
   `nomeFuncionario` varchar(50) NOT NULL,
   `emailFuncionario` varchar(50) NOT NULL,
@@ -267,22 +267,22 @@ CREATE TABLE `funcionario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `funcionario`
+-- Dumping data for table `Funcionario`
 --
 
-LOCK TABLES `funcionario` WRITE;
-/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+LOCK TABLES `Funcionario` WRITE;
+/*!40000 ALTER TABLE `Funcionario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `quarto`
+-- Table structure for table `Quarto`
 --
 
-DROP TABLE IF EXISTS `quarto`;
+DROP TABLE IF EXISTS `Quarto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `quarto` (
+CREATE TABLE `Quarto` (
   `idQuarto` int NOT NULL AUTO_INCREMENT,
   `numQuarto` int NOT NULL,
   `numCamasQuarto` int NOT NULL,
@@ -293,27 +293,27 @@ CREATE TABLE `quarto` (
   `Andar_idAndar` int NOT NULL,
   PRIMARY KEY (`idQuarto`),
   KEY `fk_Quarto_Andar1_idx` (`Andar_idAndar`),
-  CONSTRAINT `fk_Quarto_Andar1` FOREIGN KEY (`Andar_idAndar`) REFERENCES `andar` (`idAndar`)
+  CONSTRAINT `fk_Quarto_Andar1` FOREIGN KEY (`Andar_idAndar`) REFERENCES `Andar` (`idAndar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `quarto`
+-- Dumping data for table `Quarto`
 --
 
-LOCK TABLES `quarto` WRITE;
-/*!40000 ALTER TABLE `quarto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `quarto` ENABLE KEYS */;
+LOCK TABLES `Quarto` WRITE;
+/*!40000 ALTER TABLE `Quarto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Quarto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reserva`
+-- Table structure for table `Reserva`
 --
 
-DROP TABLE IF EXISTS `reserva`;
+DROP TABLE IF EXISTS `Reserva`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reserva` (
+CREATE TABLE `Reserva` (
   `idReserva` int NOT NULL AUTO_INCREMENT,
   `entradaReserva` date NOT NULL,
   `saidaReserva` date NOT NULL,
@@ -325,18 +325,18 @@ CREATE TABLE `reserva` (
   PRIMARY KEY (`idReserva`),
   KEY `fk_Reserva_Funcionario_idx` (`Funcionario_idFuncionario`),
   KEY `fk_Reserva_Quarto1_idx` (`Quarto_idQuarto`),
-  CONSTRAINT `fk_Reserva_Funcionario` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `funcionario` (`idFuncionario`),
-  CONSTRAINT `fk_Reserva_Quarto1` FOREIGN KEY (`Quarto_idQuarto`) REFERENCES `quarto` (`idQuarto`)
+  CONSTRAINT `fk_Reserva_Funcionario` FOREIGN KEY (`Funcionario_idFuncionario`) REFERENCES `Funcionario` (`idFuncionario`),
+  CONSTRAINT `fk_Reserva_Quarto1` FOREIGN KEY (`Quarto_idQuarto`) REFERENCES `Quarto` (`idQuarto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reserva`
+-- Dumping data for table `Reserva`
 --
 
-LOCK TABLES `reserva` WRITE;
-/*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
+LOCK TABLES `Reserva` WRITE;
+/*!40000 ALTER TABLE `Reserva` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Reserva` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
