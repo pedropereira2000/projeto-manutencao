@@ -32,7 +32,7 @@ public class TesteFuncionarios {
     public void limpaTabelaFuncionarios() {
         funcDAO.excluirTudoBase();
     }
-
+    
     @Test
     public void testCadastrarAndarMock(){
         var func = new Funcionario(1, "Pedro", "pedro@hotmail.com", "pedro", "0704");
@@ -45,6 +45,39 @@ public class TesteFuncionarios {
         
         assertTrue(gerecFunc.cadastrarFuncionarios("Pedro", "pedro@hotmail.com", "pedro", "0704"));
     }
+    
+    @Test
+    public void testValidaCadatroEmailErradoMock(){
+        var func = new Funcionario(1, "Pedro", "pedro", "pedro", "0704");
+        var gerecFunc = new GerenciaFuncionario();
+        var funcMock = mock(FuncionarioDAO.class);
+        
+        when(funcMock.cadastrarFuncionario(anyObject())).thenReturn(false);
+        
+        gerecFunc.setFuncDAO(funcMock);
+        var res = assertThrows(RuntimeException.class, () -> {
+            gerecFunc.cadastrarFuncionarios("Pedro", "pedro", "pedro", "0704");
+        }).getMessage();
+
+        assertEquals("Erro no email informado: Verique se foi informado um email válido com provedor e @", res);
+    } 
+    
+    @Test
+    public void testValidaEditarEmailErradoMock(){
+        
+        var func = new Funcionario(1, "marcos vinicius", "marcos@email.com", "mvsr", "m123");
+        var funcController = new GerenciaFuncionario();
+
+        //Função para definir o banco de teste
+        funcController.setFuncDAO(funcDAO);
+        funcController.cadastrarFuncionarios("marcos vinicius", "marcos@email.com", "mvsr", "m123");
+        //Verificando se a alteração foi feita no banco
+        var res = assertThrows(RuntimeException.class, () -> {
+            funcController.editarFuncionario(1, "1", "marcosresa", "marcos", "mvsr", "m123");
+        }).getMessage();     
+
+        assertEquals("Erro ao Editar: Campos Vazios", res);
+    } 
     
     @Test
     public void testEditarAndarMock(){
@@ -98,6 +131,7 @@ public class TesteFuncionarios {
         funcController.setFuncDAO(funcDAO);
         funcController.cadastrarFuncionarios("marcos", "marcos@email.com", "mvsr", "m123");
         //Verificando o funcionario cadastrado no banco
+        System.out.println(funcController.pesquisarFuncionario("mvsr", "marcos").get(0));
         assertEquals("mvsr", funcController.pesquisarFuncionario("mvsr", "marcos").get(0).getLoginFuncionario());
         assertEquals("m123", funcController.pesquisarFuncionario("mvsr", "marcos").get(0).getSenhaFuncionario());
     }

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historic_rooms" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d282762f-42a8-42cc-90e3-ef7ae7d93a84">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<parameter name="SELECT idReserva, entradaReserva, saidaReserva, clienteReserva, telefoneReserva, documentoReserva,&#xA;(SELECT numQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS quarto,&#xA;(SELECT numCamasQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS camas,&#xA;(SELECT tipoQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS tipo,&#xA;(SELECT qtdBanheirosQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS banheiros,&#xA;(SELECT descricaoQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS descricao,&#xA;(SELECT contatoQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS contato,&#xA;(SELECT (SELECT numAndar FROM Andar WHERE idAndar = Quarto.Andar_idAndar) FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) as andar&#xA;FROM Reserva&#xA;WHERE Quarto_idQuarto = $P{search_room}" class="java.lang.String"/>
+	<parameter name="search_room" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT idReserva, entradaReserva, saidaReserva, clienteReserva, telefoneReserva, documentoReserva,
+(SELECT numQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS quarto,
+(SELECT numCamasQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS camas,
+(SELECT tipoQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS tipo,
+(SELECT qtdBanheirosQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS banheiros,
+(SELECT descricaoQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS descricao,
+(SELECT contatoQuarto FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) AS contato,
+(SELECT (SELECT numAndar FROM Andar WHERE idAndar = Quarto.Andar_idAndar) FROM Quarto WHERE idQuarto = Reserva.Quarto_idQuarto) as andar
+FROM Reserva
+WHERE Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = $P{search_room})]]>
+	</queryString>
+	<field name="idReserva" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idReserva"/>
+		<property name="com.jaspersoft.studio.field.label" value="idReserva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Reserva"/>
+	</field>
+	<field name="entradaReserva" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="entradaReserva"/>
+		<property name="com.jaspersoft.studio.field.label" value="entradaReserva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Reserva"/>
+	</field>
+	<field name="saidaReserva" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="saidaReserva"/>
+		<property name="com.jaspersoft.studio.field.label" value="saidaReserva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Reserva"/>
+	</field>
+	<field name="clienteReserva" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="clienteReserva"/>
+		<property name="com.jaspersoft.studio.field.label" value="clienteReserva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Reserva"/>
+	</field>
+	<field name="telefoneReserva" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefoneReserva"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefoneReserva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Reserva"/>
+	</field>
+	<field name="documentoReserva" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="documentoReserva"/>
+		<property name="com.jaspersoft.studio.field.label" value="documentoReserva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Reserva"/>
+	</field>
+	<field name="quarto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="quarto"/>
+		<property name="com.jaspersoft.studio.field.label" value="quarto"/>
+	</field>
+	<field name="camas" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="camas"/>
+		<property name="com.jaspersoft.studio.field.label" value="camas"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+	</field>
+	<field name="banheiros" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="banheiros"/>
+		<property name="com.jaspersoft.studio.field.label" value="banheiros"/>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descricao"/>
+		<property name="com.jaspersoft.studio.field.label" value="descricao"/>
+	</field>
+	<field name="contato" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="contato"/>
+		<property name="com.jaspersoft.studio.field.label" value="contato"/>
+	</field>
+	<field name="andar" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="andar"/>
+		<property name="com.jaspersoft.studio.field.label" value="andar"/>
+	</field>
+	<group name="idReserva">
+		<groupExpression><![CDATA[$F{idReserva}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="480" height="30" uuid="25b33f6f-083b-421a-9bdd-1c98c15390a7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Reservas do Quarto - ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="20" width="80" height="30" uuid="6af35a58-81fa-41ec-805a-375390aa0844"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="25" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quarto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="228" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="40" width="100" height="30" uuid="287bab5d-78d3-4149-84ab-a135cd1367de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{camas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="40" width="100" height="30" uuid="fc6d60b7-0fb0-4cb7-9184-a80c38cb08eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="40" width="100" height="30" uuid="1eac8d65-afed-4b75-831d-5adc284ecd06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{banheiros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="110" width="554" height="100" uuid="43431c8f-ce58-4fa5-9c9d-476ff19dc8ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="40" width="100" height="30" uuid="d5253590-9a34-4245-9e99-261128c80e62"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="40" width="100" height="30" uuid="30e3983c-9c1a-4149-a1ee-ecdeef69adc5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{andar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="18" uuid="802c1325-044f-491b-b422-2ff554ba00ce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Camas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="10" width="100" height="18" uuid="628a54d8-4b0f-4f6d-9743-5e911149cc77"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="10" width="100" height="18" uuid="98cfb9f5-8e80-4b36-a73a-ffe1daff7984"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banheiros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="10" width="100" height="18" uuid="4c92e9b6-909b-4dca-8f17-4f5d0f8831fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="10" width="100" height="18" uuid="589cc6ef-40db-4326-99ab-2da3c1826456"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Andar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="80" width="290" height="18" uuid="7ae8d8bf-99c6-4ed1-9583-489f72570d23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição Geral]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="95" height="30" uuid="c777724b-79c7-4ff5-8d78-46bc149c1aab">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2854ffd-3d89-41b9-8794-4853a3f1b85c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="9" width="92" height="30" uuid="8057daf2-06ff-4269-b4bb-cbb61082846d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2e33898a-b66b-402e-8420-d90d09c7be2d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="9" width="92" height="30" uuid="9bad554b-1f8c-49e9-a8aa-7460a9dad4e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14492a3e-1c10-496c-9584-89730ec403b9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="9" width="92" height="30" uuid="0d13078d-6074-4079-8f54-e14548d4bf96">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab92ff93-0049-4072-95cb-e7f1b9bf84a7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="9" width="92" height="30" uuid="318faf50-896a-49c0-bd72-d0edc98419c3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5805ae11-d68d-422c-9c15-642e7e9e6905"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="9" width="92" height="30" uuid="1042303d-f494-4075-98a7-15337d554eae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e68c0c-441d-4d21-a8d3-3cc62f56d6ba"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-22" y="42" width="600" height="1" uuid="6b383fea-7dc9-42a5-822b-f8a3e0813f5c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="-22" y="3" width="600" height="1" uuid="0e3bc90c-c291-4a75-95ba-cb61d58c782c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="95" height="30" uuid="8f9f9f6b-dc8d-4aaf-bfc5-4f50461d0821">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2854ffd-3d89-41b9-8794-4853a3f1b85c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="4" width="92" height="30" uuid="de4ab5e8-49c3-43fb-841b-3eeb3e6d7b93">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2e33898a-b66b-402e-8420-d90d09c7be2d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{entradaReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="4" width="92" height="30" uuid="8756a345-a94c-4c51-85d3-37ec5e43205f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14492a3e-1c10-496c-9584-89730ec403b9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saidaReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="4" width="92" height="30" uuid="003edad2-400f-4fbd-9d05-5a9a3bccc827">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab92ff93-0049-4072-95cb-e7f1b9bf84a7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clienteReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="4" width="92" height="30" uuid="83ed504f-3355-4b1c-91a8-cf87f07f2111">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5805ae11-d68d-422c-9c15-642e7e9e6905"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefoneReserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="4" width="92" height="30" uuid="d7d9ea52-42b7-4234-85bf-8a3c5653d4a2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e68c0c-441d-4d21-a8d3-3cc62f56d6ba"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{documentoReserva}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-22" y="36" width="600" height="1" uuid="1344c475-5ddb-4ec8-8181-c54736a5e6e3">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

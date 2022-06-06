@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: controller.TesteReserva
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in controller.TesteReserva
 controller.TesteReserva  Time elapsed: 0.047 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
@@ -8,3 +9,6 @@ java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'
 Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 	at controller.TesteReserva.defineAll(TesteReserva.java:43)
 
+=======
+Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.873 s - in controller.TesteReserva
+>>>>>>> dev

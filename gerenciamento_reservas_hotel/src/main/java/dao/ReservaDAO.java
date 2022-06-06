@@ -41,24 +41,23 @@ public class ReservaDAO {
         Reserva reserv = null;
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT Count(*) as total FROM reserva WHERE entradaReserva = DATE('" + entrada + "') and Quarto_idQuarto = (SELECT idQuarto FROM quarto WHERE numQuarto = " + numQuarto + ")");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT Count(*) as total FROM Reserva WHERE entradaReserva = DATE('"+entrada+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM reserva WHERE entradaReserva = DATE('" + entrada + "') and Quarto_idQuarto = (SELECT idQuarto FROM quarto WHERE numQuarto = " + numQuarto + ")");
-                PreparedStatement Stmt = conectar.prepareStatement(selectSql);
-                //Executando Query
-                ResultSet rs = Stmt.executeQuery();
-                while (rs.next()) {
-                    //Integração com o funcionario ver, popular o funcionario
-                    reserv = new Reserva(rs.getInt(1), String.valueOf(rs.getDate(2)), String.valueOf(rs.getDate(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8)));
-                }
-                rs.close();
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+	            String selectSql = ("SELECT * FROM Reserva WHERE entradaReserva = DATE('"+entrada+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
+	            PreparedStatement Stmt = conectar.prepareStatement(selectSql);
+	            //Executando Query
+	            ResultSet rs = Stmt.executeQuery();
+	            while (rs.next()) {
+	                //Integração com o funcionario ver, popular o funcionario
+	                reserv = new Reserva(rs.getInt(1),String.valueOf(rs.getDate(2)),String.valueOf(rs.getDate(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8)));
+	            }
+	            rs.close();
             }
             
         } catch (SQLException erro) {
@@ -71,7 +70,7 @@ public class ReservaDAO {
         PreparedStatement inserir = null;
         try {
             //Preparando Query
-            inserir = conectar.prepareStatement("INSERT INTO RESERVA (entradaReserva,saidaReserva,clienteReserva,telefoneReserva,documentoReserva,Funcionario_idFuncionario,Quarto_idQuarto)VALUES(STR_TO_DATE(?, '%d-%m-%Y'),STR_TO_DATE(?, '%d-%m-%Y'),?,?,?,?,?)");
+            inserir = conectar.prepareStatement("INSERT INTO Reserva (entradaReserva,saidaReserva,clienteReserva,telefoneReserva,documentoReserva,Funcionario_idFuncionario,Quarto_idQuarto)VALUES(STR_TO_DATE(?, '%d-%m-%Y'),STR_TO_DATE(?, '%d-%m-%Y'),?,?,?,?,?)");
             //Passando Parâmetros para cadastro
             inserir.setString(1, reserv.getEntradaReserva());
             inserir.setString(2, reserv.getSaidaCliente());
@@ -97,7 +96,7 @@ public class ReservaDAO {
         PreparedStatement editar = null;
         try {
             //Preparando Query para Atualização do Cadastro
-            editar = conectar.prepareStatement("UPDATE RESERVA SET clienteReserva = ?, telefoneReserva = ?, documentoReserva = ? WHERE entradaReserva = Date(?) and Quarto_idQuarto = ?");
+            editar = conectar.prepareStatement("UPDATE Reserva SET clienteReserva = ?, telefoneReserva = ?, documentoReserva = ? WHERE entradaReserva = Date(?) and Quarto_idQuarto = ?");
             //Passando Parâmetros para editar cadastro
             editar.setString(1, reserv.getClienteReserva());
             editar.setString(2, reserv.getTelefoneReserva());
@@ -140,16 +139,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
@@ -170,16 +168,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA WHERE entradaReserva = Date('" + entrada + "') and saidaReserva = Date('" + saida + "') and Quarto_idQuarto = (SELECT idQuarto FROM QUARTO WHERE numQuarto = " + numQuarto + ")");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva WHERE entradaReserva = Date('"+entrada+"') and saidaReserva = Date('"+saida+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA WHERE entradaReserva = Date('" + entrada + "') and saidaReserva = Date('" + saida + "') and Quarto_idQuarto = (SELECT idQuarto FROM QUARTO WHERE numQuarto = " + numQuarto + ")");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva WHERE entradaReserva = Date('"+entrada+"') and saidaReserva = Date('"+saida+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
@@ -200,16 +197,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA WHERE entradaReserva = Date('" + entrada + "') and Quarto_idQuarto = (SELECT idQuarto FROM QUARTO WHERE numQuarto = " + numQuarto + ")");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva WHERE entradaReserva = Date('"+entrada+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA WHERE entradaReserva = Date('" + entrada + "') and Quarto_idQuarto = (SELECT idQuarto FROM QUARTO WHERE numQuarto = " + numQuarto + ")");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva WHERE entradaReserva = Date('"+entrada+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
@@ -230,16 +226,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA WHERE saidaReserva = Date('" + saida + "') and Quarto_idQuarto = (SELECT idQuarto FROM QUARTO WHERE numQuarto = " + numQuarto + ")");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva WHERE saidaReserva = Date('"+saida+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA WHERE saidaReserva = Date('" + saida + "') and Quarto_idQuarto = (SELECT idQuarto FROM QUARTO WHERE numQuarto = " + numQuarto + ")");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva WHERE saidaReserva = Date('"+saida+"') and Quarto_idQuarto = (SELECT idQuarto FROM Quarto WHERE numQuarto = "+numQuarto+")");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
@@ -260,16 +255,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA WHERE clienteReserva = '" + nomeCli + "' and documentoReserva = '" + docCli + "'");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva WHERE clienteReserva = '"+nomeCli+"' and documentoReserva = '"+docCli+"'");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA WHERE clienteReserva = '" + nomeCli + "' and documentoReserva = '" + docCli + "'");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva WHERE clienteReserva = '"+nomeCli+"' and documentoReserva = '"+docCli+"'");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
@@ -290,16 +284,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA WHERE clienteReserva = '" + nomeCli + "'");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva WHERE clienteReserva = '"+nomeCli+"'");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA WHERE clienteReserva = '" + nomeCli + "'");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva WHERE clienteReserva = '"+nomeCli+"'");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();
@@ -320,16 +313,15 @@ public class ReservaDAO {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
-            String countSql = ("SELECT COUNT(*) as total FROM RESERVA WHERE documentoReserva = '" + docCli + "'");
-            PreparedStatement stmtCount = conectar.prepareStatement(countSql);
+        	String countSql = ("SELECT COUNT(*) as total FROM Reserva WHERE documentoReserva = '"+docCli+"'");
+        	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
-            ResultSet rsCount = stmtCount.executeQuery();
-            rsCount.next();
-            if (rsCount.getInt("total") == 0) {
-                throw new SQLException();
-            } else {
-                String selectSql = ("SELECT * FROM RESERVA WHERE documentoReserva = '" + docCli + "'");
+        	ResultSet rsCount = stmtCount.executeQuery();
+        	rsCount.next();
+            if(rsCount.getInt("total")==0) throw new SQLException();
+            else {
+                String selectSql = ("SELECT * FROM Reserva WHERE documentoReserva = '"+docCli+"'");
                 PreparedStatement Stmt = conectar.prepareStatement(selectSql);
                 //Executando Query
                 ResultSet rs = Stmt.executeQuery();

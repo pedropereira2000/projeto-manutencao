@@ -14,6 +14,22 @@ public class GerenciaFuncionario {
         
     public void setFuncDAO(FuncionarioDAO funcDao){ this.funcDao = funcDao; }
     
+    public boolean validaEmailFuncionario(String funcEmail){
+        boolean var = false;
+        try {
+            
+            if(funcEmail.contains("@")){
+                var=true;
+            }else{
+                throw new RuntimeException();
+            }
+//            funcEmail.split("@").length > 0 ? return true : return false;
+        } catch (RuntimeException e) {
+            throw new RuntimeException();
+        }
+        return var;
+    }
+    
     //FUNÇÃO PARA CADASTRAR Funcionarios NO BANCO DE DADOS 
     public boolean cadastrarFuncionarios(String nome,String email,String login,String senha){         
          boolean var = false;
@@ -22,22 +38,26 @@ public class GerenciaFuncionario {
                     //JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: Campos Vazios");
                     throw new Exception();
                 }else{
-                   Funcionario func = new Funcionario();
+                    if(validaEmailFuncionario(email) == true){
+                        Funcionario func = new Funcionario();
 
-                   //Pegando nome do campo text e colocando na classe
-                   func.setNomeFuncionario(nome);
-                   //Pegando e-mail do campo text e colocando na classe
-                   func.setEmailFuncionario(email);
-                   //Pegando login do campo combo Box e colocando na classe
-                   func.setLoginFuncionario(login);
-                   //Pegando senha do campo text e colocando na classe
-                   func.setSenhaFuncionario(senha);
-                   //chamando função para cadastrar Funcionario
-                   funcDao.cadastrarFuncionario(func);
+                        //Pegando nome do campo text e colocando na classe
+                        func.setNomeFuncionario(nome);
+                        //Pegando e-mail do campo text e colocando na classe
+                        func.setEmailFuncionario(email);
+                        //Pegando login do campo combo Box e colocando na classe
+                        func.setLoginFuncionario(login);
+                        //Pegando senha do campo text e colocando na classe
+                        func.setSenhaFuncionario(senha);
+                        //chamando função para cadastrar Funcionario
+                        funcDao.cadastrarFuncionario(func);
 
-                   //JOptionPane.showMessageDialog(null, "Funcionario cadastrado com Sucesso!");
-                   var = true;     
+                        //JOptionPane.showMessageDialog(null, "Funcionario cadastrado com Sucesso!");
+                        var = true;     
+                    }
                 }
+        }catch (RuntimeException e) {
+            throw new RuntimeException("Erro no email informado: Verique se foi informado um email válido com provedor e @");
         }catch(Exception erro){
             //JOptionPane.showMessageDialog(null, "Nao eh possivel cadastrar o funcionario"); 
             throw new RuntimeException("Erro ao Cadastrar: Campos Vazios");
@@ -60,27 +80,28 @@ public class GerenciaFuncionario {
 	                    //JOptionPane.showMessageDialog(null, "Erro ao Editar: Campos Vazios");
 	                    throw new Exception();
 	                }else{
-                    
-                        //Se o cpf não foi alterado permite a edição direta do Funcionario
-                        //Pegando id do campo text e colocando na classe
-                        func.setIdFuncionario(Integer.parseInt(idEditar));
-                        //Pegando nome do campo text e colocando na classe
-                        func.setNomeFuncionario(nome);
-                        //Pegando cpf do campo text e colocando na classe
-                        func.setEmailFuncionario(email);
-                        //Pegando endereco do campo combo Box e colocando na classe
-                        func.setLoginFuncionario(login);
-                        //Pegando telefone do campo text e colocando na classe
-                        func.setSenhaFuncionario(senha);
-                        //Chamando função para editar servidor
-                        funcDao.editarFuncionario(func);
-                        //JOptionPane.showMessageDialog(null, "Funcionario editado com Sucesso!");
-                        op = true;
+                            if(validaEmailFuncionario(email) == true){
+                                //Se o cpf não foi alterado permite a edição direta do Funcionario
+                                //Pegando id do campo text e colocando na classe
+                                func.setIdFuncionario(Integer.parseInt(idEditar));
+                                //Pegando nome do campo text e colocando na classe
+                                func.setNomeFuncionario(nome);
+                                //Pegando cpf do campo text e colocando na classe
+                                func.setEmailFuncionario(email);
+                                //Pegando endereco do campo combo Box e colocando na classe
+                                func.setLoginFuncionario(login);
+                                //Pegando telefone do campo text e colocando na classe
+                                func.setSenhaFuncionario(senha);
+                                //Chamando função para editar servidor
+                                funcDao.editarFuncionario(func);
+                                //JOptionPane.showMessageDialog(null, "Funcionario editado com Sucesso!");
+                                op = true;
+                            }
 	                }
 	            }
 	        }
         } catch (Exception e) {
-        	throw new RuntimeException("Erro ao Editar: Campos Vazios");
+            throw new RuntimeException("Erro ao Editar: Campos Vazios");
         }
         return op;
     }
