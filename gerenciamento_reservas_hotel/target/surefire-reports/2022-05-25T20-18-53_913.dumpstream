@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:gerenciamento_reservas_hotel/target/surefire-reports/2022-05-25T20-18-53_913.dumpstream
 # Created at 2022-05-25T20:18:55.759
 WARNING: An illegal reflective access operation has occurred
 
@@ -11,5 +12,20 @@ WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 
 # Created at 2022-05-25T20:18:55.761
+========
+# Created at 2022-06-06T19:37:29.364
+WARNING: An illegal reflective access operation has occurred
+
+# Created at 2022-06-06T19:37:29.364
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/home/pedropereira/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+
+# Created at 2022-06-06T19:37:29.364
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+
+# Created at 2022-06-06T19:37:29.364
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+
+# Created at 2022-06-06T19:37:29.364
+>>>>>>>> origin/dev:gerenciamento_reservas_hotel/target/surefire-reports/2022-06-06T19-37-27_852.dumpstream
 WARNING: All illegal access operations will be denied in a future release
 
