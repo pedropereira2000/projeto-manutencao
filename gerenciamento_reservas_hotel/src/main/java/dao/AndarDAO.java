@@ -16,7 +16,7 @@ import model.Andar;
 import model.Funcionario;
 
 public class AndarDAO {
-	private FuncionarioDAO funcDAO = new FuncionarioDAO();
+    private FuncionarioDAO funcDAO = new FuncionarioDAO();
     public Connection conectar;
 
     public void setFuncDAO(FuncionarioDAO funcDAO) {
@@ -36,7 +36,7 @@ public class AndarDAO {
         PreparedStatement inserir = null;
         try {
             //Preparando Query
-            inserir = conectar.prepareStatement("INSERT INTO ANDAR (numAndar,Funcionario_idFuncionario)VALUES(?,?)");
+            inserir = conectar.prepareStatement("INSERT INTO Andar (numAndar,Funcionario_idFuncionario)VALUES(?,?)");
             //Passando Parâmetros para cadastro  
             inserir.setInt(1, andar.getNumAndar());
             inserir.setInt(2, andar.getFuncionario().getIdFuncionario());
@@ -80,7 +80,7 @@ public class AndarDAO {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
-            excluir = conectar.prepareStatement("DELETE FROM ANDAR WHERE idAndar = ?");
+            excluir = conectar.prepareStatement("DELETE FROM Andar WHERE idAndar = ?");
             //Passando Parâmetros exclusão de cadastro
             excluir.setInt(1, andar.getIdAndar());
             //Execução Query
@@ -99,7 +99,7 @@ public class AndarDAO {
         Andar andar = new Andar();
         try {
             //Query para Pesquisa
-            String selectSql = ("SELECT * FROM ANDAR WHERE numAndar = " + numAndar);
+            String selectSql = ("SELECT * FROM Andar WHERE numAndar = " + numAndar);
             PreparedStatement Stmt = conectar.prepareStatement(selectSql);
             //Executando Query
             ResultSet rs = Stmt.executeQuery();
@@ -122,7 +122,7 @@ public class AndarDAO {
         int cont = 0;
         try {
             //Query para Pesquisa
-            String selectSql = ("SELECT numAndar FROM ANDAR ORDER BY numAndar DESC LIMIT 1");
+            String selectSql = ("SELECT numAndar FROM Andar ORDER BY numAndar DESC LIMIT 1");
             PreparedStatement stmt = conectar.prepareStatement(selectSql);
             //Executando Query
             
@@ -147,7 +147,7 @@ public class AndarDAO {
         int cont = 0;
         try {
             //Query para Pesquisa
-            String selectSql = ("SELECT idAndar FROM ANDAR ORDER BY idAndar DESC LIMIT 1");
+            String selectSql = ("SELECT idAndar FROM Andar ORDER BY idAndar DESC LIMIT 1");
             PreparedStatement Stmt = conectar.prepareStatement(selectSql);
             //Executando Query
             ResultSet rs = Stmt.executeQuery();
@@ -167,7 +167,7 @@ public class AndarDAO {
         // String cont = " ";
         Andar cont = new Andar();
         try {
-        	String countSql = ("SELECT COUNT(*) as total FROM ANDAR WHERE idAndar = "+idAndar);
+        	String countSql = ("SELECT COUNT(*) as total FROM Andar WHERE idAndar = "+idAndar);
         	PreparedStatement stmtCount = conectar.prepareStatement(countSql);
             //Query para Pesquisa
             // String selectSql = ("SELECT COUNT(*) FROM ANDAR WHERE idAndar = '" + idAndar + "'");
@@ -175,7 +175,7 @@ public class AndarDAO {
         	rsCount.next();
             if(rsCount.getInt("total")==0) throw new SQLException();
             else {
-                    String selectSql = ("SELECT * FROM ANDAR WHERE idAndar = "+idAndar);
+                    String selectSql = ("SELECT * FROM Andar WHERE idAndar = "+idAndar);
 	            PreparedStatement stmt = conectar.prepareStatement(selectSql);
 	            //Executando Query
 	            ResultSet rs = stmt.executeQuery();
@@ -198,7 +198,7 @@ public class AndarDAO {
         try {
             //Query para Pesquisa
 
-            String selectSql = ("SELECT * FROM ANDAR");
+            String selectSql = ("SELECT * FROM Andar");
             PreparedStatement Stmt = conectar.prepareStatement(selectSql);
             //Executando Query
             ResultSet rs = Stmt.executeQuery();
@@ -231,18 +231,18 @@ public class AndarDAO {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
-            excluir = conectar.prepareStatement("DELETE FROM QUARTO");
+            excluir = conectar.prepareStatement("DELETE FROM Quarto");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("DELETE FROM ANDAR");
+            excluir = conectar.prepareStatement("DELETE FROM Andar");
             //Execução Query
             excluir.execute();
             //Encerramento Query
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE ANDAR AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Andar AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE QUARTO AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Quarto AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
             return true;

@@ -31,7 +31,7 @@ public class FuncionarioDAO {
             		throw new SQLException();
             	}else {
 	                //Query para inserção de um novo Funcionario no banco de dados
-	                inserir = conectar.prepareStatement("INSERT INTO FUNCIONARIO (nomeFuncionario,emailFuncionario,loginFuncionario,senhaFuncionario)VALUES(?,?,?,?)");
+	                inserir = conectar.prepareStatement("INSERT INTO Funcionario (nomeFuncionario,emailFuncionario,loginFuncionario,senhaFuncionario)VALUES(?,?,?,?)");
 	                //Passando id do Funcionario como parâmetro
 	                //inserir.setInt(1, func.getIdFuncionario());
 	                //Passando nome do Funcionario como parâmetro
@@ -60,7 +60,7 @@ public class FuncionarioDAO {
 
         try {
             //Query para atualizar o Funcionario
-            atualizar = conectar.prepareStatement("UPDATE FUNCIONARIO SET nomeFuncionario = ? ,emailFuncionario = ?,loginFuncionario = ?,senhaFuncionario = ? WHERE idFuncionario = ?");
+            atualizar = conectar.prepareStatement("UPDATE Funcionario SET nomeFuncionario = ? ,emailFuncionario = ?,loginFuncionario = ?,senhaFuncionario = ? WHERE idFuncionario = ?");
             //Passando id do Funcionario como parâmetro
             atualizar.setInt(5, func.getIdFuncionario());
             //Passando nome do Funcionario como parâmetro
@@ -92,7 +92,7 @@ public class FuncionarioDAO {
 
         try {
             //Query para deletar o Funcionario selecionado atraves do id
-            excluir = conectar.prepareStatement("DELETE FROM FUNCIONARIO WHERE idFuncionario = ?");
+            excluir = conectar.prepareStatement("DELETE FROM Funcionario WHERE idFuncionario = ?");
             //Passando id do Funcionario como parâmetro
             excluir.setInt(1, func.getIdFuncionario());
             //Executando a query
@@ -112,7 +112,7 @@ public class FuncionarioDAO {
 
     }
     //Consultando Funcionario por login e nome
-    public List<Funcionario> pesquisarFuncionario(String login,String nome ) {
+    public List<Funcionario> pesquisarFuncionario(String login, String nome) {
 
         PreparedStatement consulta = null;
        // PreparedStatement ConsultanumPesquisa = null;
@@ -127,7 +127,7 @@ public class FuncionarioDAO {
         }else{
             try {
                 //Pegando query de seleção para buscar Funcionario por login e nome
-                consulta = conectar.prepareStatement("SELECT Count(*) as total, idFuncionario, nomeFuncionario, emailFuncionario, loginFuncionario, senhaFuncionario FROM FUNCIONARIO WHERE loginFuncionario = ? AND nomeFuncionario = ? ");
+                consulta = conectar.prepareStatement("SELECT Count(*) as total, idFuncionario, nomeFuncionario, emailFuncionario, loginFuncionario, senhaFuncionario FROM Funcionario WHERE loginFuncionario = ? AND nomeFuncionario = ? GROUP BY idFuncionario, emailFuncionario ");
                 //ConsultanumPesquisa = conectar.prepareStatement("SELECT COUNT(*) AS 'numPesquisa' FROM FUNCIONARIO WHERE loginFuncionario = ? AND nomeFuncionario = ? ");
                 //Passando login como parâmetro
                 consulta.setString(1, login);
@@ -145,7 +145,6 @@ public class FuncionarioDAO {
                 resultado.next();
                 if(resultado.getInt("total") == 0) throw new SQLException();
                 do{
-                	
                     Funcionario func = new Funcionario();
                     func.setIdFuncionario(resultado.getInt("idFuncionario"));
                     func.setNomeFuncionario(resultado.getString("nomeFuncionario"));
@@ -356,32 +355,32 @@ public class FuncionarioDAO {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
-            excluir = conectar.prepareStatement("DELETE FROM RESERVA");
+            excluir = conectar.prepareStatement("DELETE FROM Reserva");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("DELETE FROM QUARTO");
+            excluir = conectar.prepareStatement("DELETE FROM Quarto");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("DELETE FROM ANDAR");
+            excluir = conectar.prepareStatement("DELETE FROM Andar");
             //Execução Query
             excluir.execute();
             //Encerramento Query
             excluir.close();
-            excluir = conectar.prepareStatement("DELETE FROM FUNCIONARIO");
+            excluir = conectar.prepareStatement("DELETE FROM Funcionario");
             //Execução Query
             excluir.execute();
             //Encerramento Query
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE RESERVA AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Reserva AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE ANDAR AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Andar AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE QUARTO AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Quarto AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
-            excluir = conectar.prepareStatement("ALTER TABLE FUNCIONARIO AUTO_INCREMENT = 1;");
+            excluir = conectar.prepareStatement("ALTER TABLE Funcionario AUTO_INCREMENT = 1;");
             excluir.execute();
             excluir.close();
             return true;
