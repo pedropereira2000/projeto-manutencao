@@ -1,5 +1,5 @@
 controller/TesteGerenciaQuarto.class
-controller/TesteLogin.class
 controller/TesteGerenciaAndar.class
+controller/TesteLogin.class
 controller/TesteReserva.class
 controller/TesteFuncionarios.class

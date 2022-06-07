@@ -23,7 +23,7 @@ public class ReservaDAO {
     }
     
     public void setConnection(){
-        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","Pedro@07044589");
+        this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","Pedro@0704");
     }
 
     
@@ -327,6 +327,29 @@ public class ReservaDAO {
         } catch (SQLException erro) {
             throw new RuntimeException("Erro na busca de todas as reservas"+erro);
         }
+        return reserva;
+    }
+    
+//    /Busca por nome do Cliente/
+    public ArrayList<Reserva> buscReservasNameCli(String nameCli) {
+       ArrayList<Reserva> reserva = new ArrayList();
+
+       try{
+           //Query para Pesquisa
+             String selectSql = ("SELECT *FROM Reserva Where  clienteReserva Like '%"+nameCli+"%';");
+             PreparedStatement Stmt = conectar.prepareStatement(selectSql);
+
+            //Executando Query
+            ResultSet rs = Stmt.executeQuery();
+
+            while (rs.next()) {
+                reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+            }
+            rs.close();
+       }catch(SQLException erro){
+           throw new RuntimeException("Erro na busca de todas as reservas" + erro);
+       }
+
         return reserva;
     }
 }

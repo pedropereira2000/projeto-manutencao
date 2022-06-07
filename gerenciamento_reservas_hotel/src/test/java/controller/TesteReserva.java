@@ -86,7 +86,7 @@ public class TesteReserva {
         genReserva.setFuncionarioDAO(mockFuncDAO);
         genReserva.setQuartoDAO(mockQuartoDAO);
         
-        assertEquals(true, genReserva.realizaReserva("04-12-2022", "07-12-2022", "carlos", "548135464", "14-99697-7494", 1, 1));
+        assertEquals(true, genReserva.realizaReserva("04-12-2022", "07-12-2022", "carlos", "45295985865", "14-99697-7494", 1, 1));
     }
     
     @Test
@@ -675,5 +675,26 @@ public class TesteReserva {
         }).getMessage();
         
         assertEquals("Não foi possivel converter a data informada",res);
+    }
+    
+    @Test
+    public void testCpfInvalido() throws Exception{
+       var genReserva = new GerenciaReserva();
+
+       genReserva.setReservaDAO(reservDAO);
+       genReserva.setFuncionarioDAO(funcDAO);
+       genReserva.setQuartoDAO(quartoDAO);
+
+       assertFalse(genReserva.realizaReserva("04-12-2022", "07-12-2022", "Jorge", "999999999", "14-996977494", 1, 101));
+    }
+    @Test
+    public void testCpfValido() throws Exception{
+       var genReserva = new GerenciaReserva();
+
+       genReserva.setReservaDAO(reservDAO);
+       genReserva.setFuncionarioDAO(funcDAO);
+       genReserva.setQuartoDAO(quartoDAO);
+
+       assertTrue(genReserva.realizaReserva("04-07-2022", "12-07-2022", "Jorge", "45295985865", "14-99697-7494", 1, 101));
     }
 }
