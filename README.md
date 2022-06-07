@@ -13,6 +13,7 @@ Projeto que será desenvolvido durante a disciplina de Oficina De Integração 2
 - **[mockito-all ](https://mvnrepository.com/artifact/org.mockito/mockito-all)**
 - **[junit-test ](https://junit.org/junit4/)**
 - **[checkstyle ](https://checkstyle.sourceforge.io/)**
+- **[jasperReport](https://community.jaspersoft.com/project/jasperreports-library)**
 
 ### 🚩 Dependências
 
@@ -31,9 +32,17 @@ Projeto que será desenvolvido durante a disciplina de Oficina De Integração 2
 
 Para acessar o layout utileze o [Figma](https://www.figma.com/file/ylmEe6nl3qQPGz4OZfxNXe/prototipo?node-id=0%3A1).
 
-### :lock: Recomendações:
+### :lock: Instruções:
 
-- Para executar o programa e conseguir manter as informações é necessário que você importe o [Script](./gerenciamento_reservas_hotel/reservars.sql), após realizar a importação você deve possuir duas bases (mydb e  mydb-tests), onde seram mantidas as informações.
+- Com o mySQL instalado, faça a importação da base de dados presento no [caminho](/gerenciamento_reservas_hotel/reservars.sql)
+- Faça uma alteração nos scripts de conexão para que o programa identifique seu banco:
+    - No arquivo [ConnectionFactory.java](/gerenciamento_reservas_hotel/src/main/java/dao/ConnectionFactory.java), altere o ultimo parâmetro da string na linha 15, referente a sua senha do mySQL
+    - No arquivo [AndarDAO.java](/gerenciamento_reservas_hotel/src/main/java/dao/AndarDAO.java), altere o ultimo parâmetro da string na linha 31, referente a sua senha do mySQL
+    - No arquivo [FuncionarioDAO.java](/gerenciamento_reservas_hotel/src/main/java/dao/FuncionarioDAO.java), altere o ultimo parâmetro da string na linha 20, referente a sua senha do mySQL
+    - No arquivo [QuartoDAO.java](/gerenciamento_reservas_hotel/src/main/java/dao/QuartoDAO.java), altere o ultimo parâmetro da string na linha 33, referente a sua senha do mySQL
+    - No arquivo [ReservaDAO.java](/gerenciamento_reservas_hotel/src/main/java/dao/ReservaDAO.java), altere o ultimo parâmetro da string na linha 26, referente a sua senha do mySQL
+- Execute um Build & Clean via NetBeans
+- Para usar a aplicação execute a TelaLogin.java com o usuário=pedro e senha=0704
 
 ### :two_men_holding_hands: Membros da Equipe
 
