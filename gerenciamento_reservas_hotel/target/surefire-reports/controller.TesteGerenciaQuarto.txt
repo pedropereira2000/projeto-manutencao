@@ -2,6 +2,7 @@
 Test set: controller.TesteGerenciaQuarto
 -------------------------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in controller.TesteGerenciaQuarto
 controller.TesteGerenciaQuarto  Time elapsed: 0.039 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
@@ -12,3 +13,12 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 =======
 Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.605 s - in controller.TesteGerenciaQuarto
 >>>>>>> origin/dev
+=======
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.036 s <<< FAILURE! - in controller.TesteGerenciaQuarto
+controller.TesteGerenciaQuarto  Time elapsed: 0.036 s  <<< ERROR!
+java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteGerenciaQuarto.setUpClass(TesteGerenciaQuarto.java:37)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.TesteGerenciaQuarto.setUpClass(TesteGerenciaQuarto.java:37)
+
+>>>>>>> dev

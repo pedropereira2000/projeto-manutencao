@@ -12,30 +12,32 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Quarto;
 import model.Reserva;
+import dao.QuartoDAO;
 
 public class ReservaDAO {
+    
     QuartoDAO quartoDAO = new QuartoDAO();
     FuncionarioDAO funcDAO = new FuncionarioDAO();
+    
     public Connection conectar;
     
-    public ReservaDAO(){
+    public ReservaDAO() {
         this.conectar = new ConnectionFactory().conectar();
     }
     
     public void setConnection(){
         this.conectar = new ConnectionFactory().conectar("jdbc:mysql://localhost:3306/mydb-tests?useTimezone=true&serverTimezone=UTC","root","3621");
     }
-
     
-    public void setQuartoDAO(QuartoDAO quartoDAO){
+    public void setQuartoDAO(QuartoDAO quartoDAO) {
         this.quartoDAO = quartoDAO;
     }
-
-    public void setFuncionarioDAO(FuncionarioDAO funcDAO){
+    
+    public void setFuncionarioDAO(FuncionarioDAO funcDAO) {
         this.funcDAO = funcDAO;
     }
     
-    public Reserva buscaReserva(String entrada, int numQuarto){
+    public Reserva buscaReserva(String entrada, int numQuarto) {
         Reserva reserv = null;
         try {
             //Query para Pesquisa
@@ -57,14 +59,14 @@ public class ReservaDAO {
 	            }
 	            rs.close();
             }
-
+            
         } catch (SQLException erro) {
             throw new RuntimeException("Erro na busca da Reserva");
         }
         return reserv;
     }
     
-    public boolean cadastrarReserva(Reserva reserv){
+    public boolean cadastrarReserva(Reserva reserv) {
         PreparedStatement inserir = null;
         try {
             //Preparando Query
@@ -80,7 +82,9 @@ public class ReservaDAO {
             //Execução Query
             inserir.execute();
             //Encerramento da Query
-            if(inserir.getUpdateCount()==0)throw new SQLException();
+            if (inserir.getUpdateCount() == 0) {
+                throw new SQLException();
+            }
             inserir.close();
             return true;
         } catch (SQLException erro) {
@@ -88,7 +92,7 @@ public class ReservaDAO {
         }
     }
     
-    public boolean editarReserva(Reserva reserv){
+    public boolean editarReserva(Reserva reserv) {
         PreparedStatement editar = null;
         try {
             //Preparando Query para Atualização do Cadastro
@@ -100,7 +104,9 @@ public class ReservaDAO {
             editar.setString(4, reserv.getEntradaReserva());
             editar.setInt(5, reserv.getQuarIdQuarto().getIdQuarto());
             editar.executeUpdate();
-            if(editar.getUpdateCount()==0)throw new SQLException();
+            if (editar.getUpdateCount() == 0) {
+                throw new SQLException();
+            }
             editar.close();
             return true;
             //}
@@ -109,7 +115,7 @@ public class ReservaDAO {
         }
     }
     
-    public boolean excluirReserva(Reserva reserv){
+    public boolean excluirReserva(Reserva reserv) {
         PreparedStatement excluir = null;
         try {
             //Preparando Query para Exclusão
@@ -119,7 +125,9 @@ public class ReservaDAO {
             //Execução Query
             excluir.execute();
             //Encerramento Query
-            if(excluir.getUpdateCount()==0)throw new SQLException();
+            if (excluir.getUpdateCount() == 0) {
+                throw new SQLException();
+            }
             excluir.close();
             return true;
         } catch (SQLException erro) {
@@ -127,7 +135,7 @@ public class ReservaDAO {
         }
     }
     
-    public ArrayList<Reserva> buscTodasReservas(){
+    public ArrayList<Reserva> buscTodasReservas() {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -145,18 +153,18 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas" + erro);
         }
         return reserva;
     }
     
-    public ArrayList<Reserva> buscReservasEntradaSaidaNumQuarto(String entrada, String saida, int numQuarto){
+    public ArrayList<Reserva> buscReservasEntradaSaidaNumQuarto(String entrada, String saida, int numQuarto) {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -174,18 +182,18 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas" + erro);
         }
         return reserva;
     }
     
-    public ArrayList<Reserva> buscReservasEntradaNumQuarto(String entrada, int numQuarto){
+    public ArrayList<Reserva> buscReservasEntradaNumQuarto(String entrada, int numQuarto) {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -203,18 +211,18 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas" + erro);
         }
         return reserva;
     }
     
-    public ArrayList<Reserva> buscReservasSaidaNumQuarto(String saida, int numQuarto){
+    public ArrayList<Reserva> buscReservasSaidaNumQuarto(String saida, int numQuarto) {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -232,18 +240,18 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas" + erro);
         }
         return reserva;
     }
     
-    public ArrayList<Reserva> buscReservasNomeDocCli(String nomeCli, String docCli){
+    public ArrayList<Reserva> buscReservasNomeDocCli(String nomeCli, String docCli) {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -261,18 +269,18 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas aqui"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas aqui" + erro);
         }
         return reserva;
     }
     
-    public ArrayList<Reserva> buscReservasNomeCli(String nomeCli){
+    public ArrayList<Reserva> buscReservasNomeCli(String nomeCli) {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -290,18 +298,18 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas" + erro);
         }
         return reserva;
     }
     
-    public ArrayList<Reserva> buscReservasDocCli(String docCli){
+    public ArrayList<Reserva> buscReservasDocCli(String docCli) {
         ArrayList<Reserva> reserva = new ArrayList();
         try {
             //Query para Pesquisa
@@ -319,14 +327,38 @@ public class ReservaDAO {
                 ResultSet rs = Stmt.executeQuery();
                 while (rs.next()) {
                     //Integração com o funcionario ver, popular o funcionario
-                    reserva.add(new Reserva(rs.getInt(1),String.valueOf(rs.getString(2)),String.valueOf(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+                    reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
                 }
                 rs.close();
             }
-
+            
         } catch (SQLException erro) {
-            throw new RuntimeException("Erro na busca de todas as reservas"+erro);
+            throw new RuntimeException("Erro na busca de todas as reservas" + erro);
         }
         return reserva;
     }
+
+    /*Busca por nome do Cliente*/
+    public ArrayList<Reserva> buscReservasNameCli(String nameCli) {
+       ArrayList<Reserva> reserva = new ArrayList();
+       
+       try{
+           //Query para Pesquisa
+             String selectSql = ("SELECT *FROM  reserva Where  clienteReserva Like '%"+nameCli+"%';");
+             PreparedStatement Stmt = conectar.prepareStatement(selectSql);
+             
+            //Executando Query
+            ResultSet rs = Stmt.executeQuery();
+           
+            while (rs.next()) {
+                reserva.add(new Reserva(rs.getInt(1), String.valueOf(rs.getString(2)), String.valueOf(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), funcDAO.getFuncionarios(rs.getInt(7)), quartoDAO.buscarIdQuarto(rs.getInt(8))));
+            }
+            rs.close();
+       }catch(SQLException erro){
+           throw new RuntimeException("Erro na busca de todas as reservas" + erro);
+       }
+        
+        return reserva;
+    }
+    
 }

@@ -8,7 +8,6 @@ package dao;
 import model.Andar;
 import model.Funcionario;
 import model.Quarto;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

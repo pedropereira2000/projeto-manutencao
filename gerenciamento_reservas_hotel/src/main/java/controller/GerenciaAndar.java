@@ -7,9 +7,7 @@ package controller;
 
 import model.Andar;
 import model.Funcionario;
-
 import java.util.ArrayList;
-
 import dao.AndarDAO;
 
 public class GerenciaAndar {
